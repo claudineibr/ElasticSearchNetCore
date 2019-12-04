@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace ElasticSearch.Domain.Classes
 {
-    public class RealtyDivisions
+    public partial class RealtyDivisions
     {
         public RealtyDivisions()
         {

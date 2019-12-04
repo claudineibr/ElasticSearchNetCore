@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ElasticSearch.Domain.Classes
 {
-    public class AttributeDescriptions
+    public partial class AttributeDescriptions
     {
         public int Id { get; set; }
         public string Description { get; set; }

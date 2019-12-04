@@ -1,9 +1,10 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace ElasticSearch.Domain.Classes
 {
-    public class DesignUnitMultimedia
+    public partial class DesignUnitMultimedia
     {
         public int Id { get; set; }
         public int DesignUnitId { get; set; }

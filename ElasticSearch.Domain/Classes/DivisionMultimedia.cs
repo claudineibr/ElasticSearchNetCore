@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ElasticSearch.Domain.Classes
 {
-    public class DivisionMultimedia
+    public partial class DivisionMultimedia
     {
         public int Id { get; set; }
         public int DivisionId { get; set; }

@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ElasticSearch.Domain.Classes
 {
-    public class DesignFunding
+    public partial class DesignFunding
     {
         public int DesignUnitId { get; set; }
         public int DownPayment { get; set; }

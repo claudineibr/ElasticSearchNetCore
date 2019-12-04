@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ElasticSearch.Domain.Classes
 {
-    public class AttributeCategories
+    public partial class AttributeCategories
     {
         public AttributeCategories()
         {

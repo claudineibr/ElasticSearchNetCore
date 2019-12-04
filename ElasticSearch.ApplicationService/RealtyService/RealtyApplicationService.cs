@@ -20,6 +20,7 @@ namespace ElasticSearch.ApplicationService.RealtyService
         private readonly Logger logger = LogManager.GetCurrentClassLogger();
         private int _companyGroupId = 1;
         private static readonly int PageSize = 12;
+        private static readonly int NOFILTER = -1;
         private readonly string indexName = "realties";
 
         public RealtyApplicationService(IRealtyRepository realtyRepository, IElasticClient elasticClient)
@@ -65,15 +66,15 @@ namespace ElasticSearch.ApplicationService.RealtyService
 
             foreach (var realty in realtyFilter.RealtyFilterList)
             {
-                //var ids = GetLocality(r);
+                //var ids = GetLocality(realty);
 
-                //r.NeighborhoodId = ids[0];
-                //r.LocalityId = ids[1];
-                //r.StateId = ids[2];
-                //r.GeographicalZoneId = ids[3];
-                //r.ValueZoneId = ids[4];
+                //realty.NeighborhoodId = ids[0];
+                //realty.LocalityId = ids[1];
+                //realty.StateId = ids[2];
+                //realty.GeographicalZoneId = ids[3];
+                //realty.ValueZoneId = ids[4];
 
-                if (realty.MarketingTypeId != null)
+                if (!(realty.MarketingTypeId is null))
                     marketingTypeId = (int)realty.MarketingTypeId;
 
                 if (realtyFilter.ApplicationId != 1)
@@ -118,7 +119,7 @@ namespace ElasticSearch.ApplicationService.RealtyService
                         //Se tem outra empresa ligada a empresa 
                         var companiesLancamento = _context.Companies.Where(x => x.CrmCompanyId == broker.Company.CrmCompanyId && x.SubsidiaryTypeId == null).FirstOrDefault();
 
-                        if (companiesLancamento != null && companiesLancamento.Id > 0)
+                        if (!(companiesLancamento is null) && companiesLancamento.Id > 0)
                             filters.Add((fq => fq.Terms(t => t.Field(f => f.BrokerActiveRealties.Select(rc => rc.UserId)).Terms(realty.BrokerId)) || fq.Terms(t => t.Field(f => f.RealtyCompanies.Select(rc => rc.CompanyId)).Terms(companiesLancamento.Id))));
                         else
                             filters.Add(fq => fq.Terms(t => t.Field(f => f.BrokerActiveRealties.Select(rc => rc.UserId)).Terms(realty.BrokerId)));
@@ -126,18 +127,17 @@ namespace ElasticSearch.ApplicationService.RealtyService
                 }
 
                 //Construção de Filtros de query
-                if (realty.RealtyId.HasValue && realty.RealtyId != -1)
+                if (realty.RealtyId.HasValue && realty.RealtyId != NOFILTER)
                     filters.Add(fq => fq.Terms(t => t.Field(f => f.Id).Terms(realty.RealtyId)));
 
-
-                if (realty.NeighborhoodId.HasValue && realty.NeighborhoodId != -1)
+                if (realty.NeighborhoodId.HasValue && realty.NeighborhoodId != NOFILTER)
                 {
                     var zoneName = "";
 
-
                     var neightborhood = GetNeighboorhoodById((int)realty.NeighborhoodId);
-                    neightborhood.ValueZone = realty.ValueZoneId != null ? GetValueZonesById((int)realty.ValueZoneId) : null;
-                    if (neightborhood != null && neightborhood.ValueZone != null)
+                    neightborhood.ValueZone = !(realty.ValueZoneId is null) ? GetValueZonesById((int)realty.ValueZoneId) : null;
+
+                    if (!(neightborhood is null) && !(neightborhood.ValueZone is null))
                     {
                         realty.ValueZoneId = neightborhood.ValueZone.Id;
                         zoneName = neightborhood.ValueZone.Name.ToUpper();
@@ -145,225 +145,258 @@ namespace ElasticSearch.ApplicationService.RealtyService
 
                     bool newRealties = (realty.MarketingTypeId.HasValue && realty.MarketingTypeId.Value == 4);
 
-                    bool searchByZone = (realty.ValueZoneId.HasValue && realty.ValueZoneId != -1);
+                    bool searchByZone = (realty.ValueZoneId.HasValue && realty.ValueZoneId != NOFILTER);
 
                     bool sameByZone = (zoneName == realty.NeighborhoodName.ToUpper());
 
                     if (searchByZone && (newRealties || sameByZone))
-                    {
-                        filters.Add((fq => fq.Terms(t => t.Field(f => f.ValueZoneId).Terms(realty.ValueZoneId.Value)) || fq.Terms(t => t.Field(f => f.NeighborhoodId).Terms(realty.NeighborhoodId))));
-                    }
+                        filters.Add(fq => fq.Terms(t => t.Field(f => f.ValueZoneId).Terms(realty.ValueZoneId.Value)) || fq.Terms(t => t.Field(f => f.NeighborhoodId).Terms(realty.NeighborhoodId)));
                     else
+                        filters.Add(fq => fq.Terms(t => t.Field(f => f.NeighborhoodId).Terms(realty.NeighborhoodId))); // NEW LAYOUT
+                }
+
+                if (realty.NeighborhoodId == -1 && realty.ValueZoneId.HasValue && realty.ValueZoneId != NOFILTER)
+                    filters.Add(fq => fq.Terms(t => t.Field(f => f.ValueZoneId).Terms(realty.ValueZoneId.Value)));// NEW LAYOUT
+
+                //Checa se filtra por Zona Geografica
+                if ((!realty.NeighborhoodId.HasValue || realty.NeighborhoodId == NOFILTER) && realty.LocalityId.HasValue && realty.LocalityId != NOFILTER && realty.GeographicalZoneId.HasValue && realty.GeographicalZoneId != NOFILTER)
+                {
+                    filters.Add(fq => fq.Terms(t => t.Field(f => f.LocalityId).Terms(realty.LocalityId)));// NEW LAYOUT
+                    filters.Add(fq => fq.Terms(t => t.Field(f => f.RealtyAddresses.Neighborhood.ValueZone.GeographicalZoneLocalityId).Terms(realty.GeographicalZoneId)));// NEW LAYOUT
+                }
+
+                if ((!realty.NeighborhoodId.HasValue || realty.NeighborhoodId == NOFILTER) && realty.LocalityId.HasValue && realty.LocalityId != NOFILTER && ((!realty.GeographicalZoneId.HasValue || realty.GeographicalZoneId == NOFILTER)))
+                    filters.Add((fq => fq.Terms(t => t.Field(f => f.LocalityId).Terms(realty.LocalityId))));// NEW LAYOUT
+
+                if ((!realty.NeighborhoodId.HasValue || realty.NeighborhoodId == NOFILTER) && (!realty.LocalityId.HasValue || realty.LocalityId == NOFILTER) && realty.StateId.HasValue && realty.StateId != NOFILTER)
+                    filters.Add(fq => fq.Terms(t => t.Field(f => f.StateId).Terms(realty.StateId)));// NEW LAYOUT
+
+                if (realty.CategoryId.HasValue && realty.CategoryId != NOFILTER)
+                    filters.Add(fq => fq.Terms(t => t.Field(f => f.CategoryId).Terms(realty.CategoryId)));// NEW LAYOUT
+
+                if (!(realty.AttributeList is null))
+                {
+                    foreach (var att in realty.AttributeList)
+                        filters.Add(fq => fq.Terms(t => t.Field(f => f.RealtyAttributes.Select(s => s.AttributeId)).Terms(att.AttributeId)));
+                }
+
+                bool hasOwner = (realty.MarketingTypeId != 4);
+                if (realty.MarketingTypeId.HasValue && realty.MarketingTypeId != NOFILTER)
+                {
+                    List<int> types = new List<int> { 1, 2, 3 };
+                    switch (realty.MarketingTypeId)
                     {
-                        filters.Add((fq => fq.Terms(t => t.Field(f => f.NeighborhoodId).Terms(realty.NeighborhoodId)))); // NEW LAYOUT
+                        case 1:
+                            types = new List<int> { 1, 2 };
+                            break;
+                        case 3:
+                            types = new List<int> { 2, 3 };
+                            break;
+                        case 4:
+                            types = new List<int> { 1 };
+                            break;
+                    }
+                    filters.Add(fq => fq.Terms(t => t.Field(f => f.MarketingType).Terms(types)) &&
+                                      fq.Terms(t => t.Field(f => f.HasOwner).Terms(hasOwner)));
+                }
+
+                if (realty.QtyBedrooms.HasValue && realty.QtyBedrooms != NOFILTER)
+                {
+                    if (realty.QtyBedrooms <= 4)
+                        filters.Add(fq => fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedrooms)) &&
+                                          fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedrooms)));
+                    else
+                        filters.Add(fq => fq.Range(t => t.Field(f => f.QtyBedrooms).GreaterThanOrEquals(realty.QtyBedrooms)));  // NEW LAYOUT
+                }
+
+                if (realty.QtySuites.HasValue && realty.QtySuites != NOFILTER)
+                {
+                    if (realty.QtySuites <= 4)
+                        filters.Add(fq => fq.Terms(t => t.Field(f => f.QtySuites).Terms(realty.QtySuites)) ||
+                                          fq.Terms(t => t.Field(f => f.QtySuitesMax).Terms(realty.QtySuites)));// NEW LAYOUT
+                    else
+                        filters.Add(fq => fq.Range(t => t.Field(f => f.QtySuites).GreaterThanOrEquals(realty.QtySuites))); // NEW LAYOUT
+                }
+
+                if (realty.QtyDemarkedVacancies.HasValue && realty.QtyDemarkedVacancies != NOFILTER)
+                    filters.Add(fq => fq.Terms(t => t.Field(f => f.QtyDemarkedVacancies).Terms(realty.QtyDemarkedVacancies)) ||
+                                      fq.Terms(t => t.Field(f => f.QtyDemarkedVacanciesMax).Terms(realty.QtyDemarkedVacancies))); // NEW LAYOUT
+
+                if (realty.QtyBedroomsList != null && realty.QtyBedroomsList.Any())
+                {
+                    if (realty.QtyBedroomsList.Count == 1)
+                    {
+                        if (realty.QtyBedroomsList[0] <= 4)
+                            filters.Add(fq => fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[0])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[0]))); // NEW LAYOUT 
+                        else
+                            filters.Add(fq => fq.Range(t => t.Field(f => f.QtyBedrooms).GreaterThanOrEquals(realty.QtyBedroomsList[0]))); // NEW LAYOUT
+                    }
+                    else if (realty.QtyBedroomsList.Count == 2)
+                    {
+                        if (!realty.QtyBedroomsList.Contains(5))
+                        {
+                            filters.Add(fq => fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[0])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[0])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[1])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[1]))); // NEW LAYOUT
+                        }
+                        else
+                        {
+                            filters.Add(fq => fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[0])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[0])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[1])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[1])) ||
+                                              fq.Range(t => t.Field(f => f.QtyBedrooms).GreaterThanOrEquals(5))); // NEW LAYOUT
+                        }
+                    }
+                    else if (realty.QtyBedroomsList.Count == 3)
+                    {
+                        if (!realty.QtyBedroomsList.Contains(5))
+                        {
+                            filters.Add(fq => fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[0])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[0])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[1])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[1])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[2])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[2]))); // NEW LAYOUT
+
+                        }
+                        else
+                        {
+                            filters.Add(fq => fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[0])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[0])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[1])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[1])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[2])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[2])) ||
+                                              fq.Range(t => t.Field(f => f.QtyBedrooms).GreaterThanOrEquals(5))); // NEW LAYOUT
+                        }
+                    }
+                    else if (realty.QtyBedroomsList.Count == 4)
+                    {
+                        if (!realty.QtyBedroomsList.Contains(5))
+                        {
+                            filters.Add(fq => fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[0])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[0])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[1])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[1])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[2])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[2])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[3])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[3]))); // NEW LAYOUT
+
+                        }
+                        else
+                        {
+                            filters.Add(fq => fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[0])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[0])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[1])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[1])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[2])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[2])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[3])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[3])) ||
+                                              fq.Range(t => t.Field(f => f.QtyBedrooms).GreaterThanOrEquals(5))); // NEW LAYOUT
+                        }
+                    }
+                    else if (realty.QtyBedroomsList.Count == 5)
+                    {
+                        if (!realty.QtyBedroomsList.Contains(5))
+                        {
+                            filters.Add(fq => fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[0])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[0])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[1])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[1])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[2])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[2])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[3])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[3])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[4])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[4]))); // NEW LAYOUT
+
+                        }
+                        else
+                        {
+                            filters.Add(fq => fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[0])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[0])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[1])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[1])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[2])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[2])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[3])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[3])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedrooms).Terms(realty.QtyBedroomsList[4])) ||
+                                              fq.Terms(t => t.Field(f => f.QtyBedroomsMax).Terms(realty.QtyBedroomsList[4])) ||
+                                              fq.Range(t => t.Field(f => f.QtyBedrooms).GreaterThanOrEquals(5))); // NEW LAYOUT
+                        }
                     }
                 }
 
-                //if (r.NeighborhoodId == -1 && r.ValueZoneId.HasValue && r.ValueZoneId != -1)
-                //{
+                if (realty.QtySuitesList != null && realty.QtySuitesList.Any())
+                {
+                    if (realty.QtySuitesList.Count == 1)
+                    {
+                        if (realty.QtySuitesList[0] <= 4)
+                            filters.Add(fq => fq.Terms(t => t.Field(f => f.QtySuites).Terms(realty.QtySuitesList[0])) ||
+                                              fq.Terms(t => t.Field(f => f.QtySuitesMax).Terms(realty.QtySuitesList[0]))); // NEW LAYOUT 
+                        else
+                            filters.Add(fq => fq.Range(t => t.Field(f => f.QtyBedrooms).GreaterThanOrEquals(5)));
+                    }
+                    //else if (r.QtySuitesList.Count == 2)
+                    //{
+                    //    if (!r.QtySuitesList.Contains(5))
+                    //    {
+                    //        predicateItem = predicateItem
+                    //            .And(a => a.QtySuites == r.QtySuitesList[0] || a.QtySuitesMax == r.QtySuitesList[0] || a.QtySuites == r.QtySuitesList[1] || a.QtySuitesMax == r.QtySuitesList[1]); // NEW LAYOUT
+                    //    }
+                    //    else
+                    //    {
+                    //        predicateItem = predicateItem
+                    //           .And(a => a.QtySuites == r.QtySuitesList[0] || a.QtySuitesMax == r.QtySuitesList[0] || a.QtySuites == r.QtySuitesList[1] || a.QtySuitesMax == r.QtySuitesList[1] || a.QtySuites >= 5); // NEW LAYOUT
+                    //    }
+                    //}
+                    //else if (r.QtySuitesList.Count == 3)
+                    //{
+                    //    if (!r.QtySuitesList.Contains(5))
+                    //    {
+                    //        predicateItem = predicateItem
+                    //            .And(a => a.QtySuites == r.QtySuitesList[0] || a.QtySuitesMax == r.QtySuitesList[0] || a.QtySuites == r.QtySuitesList[1] || a.QtySuitesMax == r.QtySuitesList[1] || a.QtySuites == r.QtySuitesList[2] || a.QtySuitesMax == r.QtySuitesList[2]); // NEW LAYOUT
+                    //    }
+                    //    else
+                    //    {
+                    //        predicateItem = predicateItem
+                    //           .And(a => a.QtySuites == r.QtySuitesList[0] || a.QtySuitesMax == r.QtySuitesList[0] || a.QtySuites == r.QtySuitesList[1] || a.QtySuitesMax == r.QtySuitesList[1] || a.QtySuites == r.QtySuitesList[2] || a.QtySuitesMax == r.QtySuitesList[2] || a.QtySuites >= 5); // NEW LAYOUT
+                    //    }
+                    //}
+                    //else if (r.QtySuitesList.Count == 4)
+                    //{
+                    //    if (!r.QtySuitesList.Contains(5))
+                    //    {
+                    //        predicateItem = predicateItem
+                    //            .And(a => a.QtySuites == r.QtySuitesList[0] || a.QtySuitesMax == r.QtySuitesList[0] || a.QtySuites == r.QtySuitesList[1] || a.QtySuitesMax == r.QtySuitesList[1] || a.QtySuites == r.QtySuitesList[2] || a.QtySuitesMax == r.QtySuitesList[2] || a.QtySuites == r.QtySuitesList[3] || a.QtySuitesMax == r.QtySuitesList[3]); // NEW LAYOUT
+                    //    }
+                    //    else
+                    //    {
+                    //        predicateItem = predicateItem
+                    //           .And(a => a.QtySuites == r.QtySuitesList[0] || a.QtySuitesMax == r.QtySuitesList[0] || a.QtySuites == r.QtySuitesList[1] || a.QtySuitesMax == r.QtySuitesList[1] || a.QtySuites == r.QtySuitesList[2] || a.QtySuitesMax == r.QtySuitesList[2] || a.QtySuites == r.QtySuitesList[3] || a.QtySuitesMax == r.QtySuitesList[3] || a.QtySuites >= 5); // NEW LAYOUT
+                    //    }
+                    //}
+                    //else if (r.QtySuitesList.Count == 5)
+                    //{
+                    //    if (!r.QtySuitesList.Contains(5))
+                    //    {
+                    //        predicateItem = predicateItem
+                    //            .And(a => a.QtySuites == r.QtySuitesList[0] || a.QtySuitesMax == r.QtySuitesList[0] || a.QtySuites == r.QtySuitesList[1] || a.QtySuitesMax == r.QtySuitesList[1] || a.QtySuites == r.QtySuitesList[2] || a.QtySuitesMax == r.QtySuitesList[2] || a.QtySuites == r.QtySuitesList[3] || a.QtySuitesMax == r.QtySuitesList[3] || a.QtySuites == r.QtySuitesList[4] || a.QtySuitesMax == r.QtySuitesList[4]); // NEW LAYOUT
+                    //    }
+                    //    else
+                    //    {
+                    //        predicateItem = predicateItem
+                    //           .And(a => a.QtySuites == r.QtySuitesList[0] || a.QtySuitesMax == r.QtySuitesList[0] || a.QtySuites == r.QtySuitesList[1] || a.QtySuitesMax == r.QtySuitesList[1] || a.QtySuites == r.QtySuitesList[2] || a.QtySuitesMax == r.QtySuitesList[2] || a.QtySuites == r.QtySuitesList[3] || a.QtySuitesMax == r.QtySuitesList[3] || a.QtySuites == r.QtySuitesList[4] || a.QtySuitesMax == r.QtySuitesList[4] || a.QtySuites >= 5); // NEW LAYOUT
+                    //    }
+                    //}
 
-                //    predicateItem = predicateItem
-                //        .And(a => a.ValueZoneId == r.ValueZoneId.Value); // NEW LAYOUT
-
-                //}
-
-                ////Checa se filtra por Zona Geografica
-                //if ((!r.NeighborhoodId.HasValue || r.NeighborhoodId == -1) && r.LocalityId.HasValue && r.LocalityId != -1 && r.GeographicalZoneId.HasValue && r.GeographicalZoneId != -1)
-                //{
-                //    predicateItem = predicateItem.And(a => a.LocalityId == r.LocalityId); // NEW LAYOUT
-                //    predicateItem = predicateItem.And(a => a.RealtyAddresses.Neighborhood.ValueZone.GeographicalZoneLocalityId == r.GeographicalZoneId); // NEW LAYOUT
-                //}
-
-                //if ((!r.NeighborhoodId.HasValue || r.NeighborhoodId == -1) && r.LocalityId.HasValue && r.LocalityId != -1 && ((!r.GeographicalZoneId.HasValue || r.GeographicalZoneId == -1)))
-                //{
-                //    predicateItem = predicateItem.And(a => a.LocalityId == r.LocalityId); // NEW LAYOUT
-                //}
-                //if ((!r.NeighborhoodId.HasValue || r.NeighborhoodId == -1) && (!r.LocalityId.HasValue || r.LocalityId == -1) && r.StateId.HasValue && r.StateId != -1)
-                //{
-                //    predicateItem = predicateItem.And(a => a.StateId == r.StateId); // NEW LAYOUT
-                //}
-                //if (r.CategoryId.HasValue && r.CategoryId != -1)
-                //{
-                //    predicateItem = predicateItem.And(a => a.CategoryId == r.CategoryId); // NEW LAYOUT
-                //}
-                //if (r.AttributeList != null)
-                //{
-                //    foreach (var att in r.AttributeList)
-                //        predicateItem = predicateItem.And(a => a.RealtyAttributes.Any(ra => att.AttributeId == ra.AttributeId));
-                //}
-
-                //bool hasOwner = (r.MarketingTypeId != 4);
-                //if (r.MarketingTypeId.HasValue && r.MarketingTypeId != -1)
-                //{
-                //    List<int> types = new List<int> { 1, 2, 3 };
-                //    switch (r.MarketingTypeId)
-                //    {
-                //        case 1:
-                //            types = new List<int> { 1, 2 };
-                //            break;
-                //        case 3:
-                //            types = new List<int> { 2, 3 };
-                //            break;
-                //        case 4:
-                //            types = new List<int> { 1 };
-                //            break;
-                //    }
-                //    predicateItem = predicateItem.And(a => types.Contains(a.MarketingTypeId) && a.HasOwner == hasOwner);
-                //}
-                //if (r.QtyBedrooms.HasValue && r.QtyBedrooms != -1)
-                //{
-                //    if (r.QtyBedrooms <= 4)
-                //        predicateItem = predicateItem
-                //            .And(a => a.QtyBedrooms == r.QtyBedrooms || a.QtyBedroomsMax == r.QtyBedrooms); // NEW LAYOUT
-                //    else
-                //        predicateItem = predicateItem
-                //            .And(a => a.QtyBedrooms >= r.QtyBedrooms); // NEW LAYOUT
-                //}
-                //if (r.QtySuites.HasValue && r.QtySuites != -1)
-                //{
-                //    if (r.QtySuites <= 4)
-                //        predicateItem = predicateItem
-                //            .And(a => a.QtySuites == r.QtySuites || a.QtySuitesMax == r.QtySuites); // NEW LAYOUT
-                //    else
-                //        predicateItem = predicateItem
-                //            .And(a => a.QtySuites >= r.QtySuites); // NEW LAYOUT
-                //}
-                //if (r.QtyDemarkedVacancies.HasValue && r.QtyDemarkedVacancies != -1)
-                //{
-                //    predicateItem = predicateItem
-                //        .And(a => a.QtyDemarkedVacancies == r.QtyDemarkedVacancies || a.QtyDemarkedVacanciesMax == r.QtyDemarkedVacancies); // NEW LAYOUT
-                //}
-
-                //if (r.QtyBedroomsList != null && r.QtyBedroomsList.Any())
-                //{
-                //    if (r.QtyBedroomsList.Count == 1)
-                //    {
-                //        if (r.QtyBedroomsList[0] <= 4)
-                //            predicateItem = predicateItem
-                //                .And(a => a.QtyBedrooms == r.QtyBedroomsList[0] || a.QtyBedroomsMax == r.QtyBedroomsList[0]); // NEW LAYOUT
-                //        else
-                //            predicateItem = predicateItem
-                //                .And(a => a.QtyBedrooms >= r.QtyBedroomsList[0]); // NEW LAYOUT
-                //    }
-                //    else if (r.QtyBedroomsList.Count == 2)
-                //    {
-                //        if (!r.QtyBedroomsList.Contains(5))
-                //        {
-                //            predicateItem = predicateItem
-                //                .And(a => a.QtyBedrooms == r.QtyBedroomsList[0] || a.QtyBedroomsMax == r.QtyBedroomsList[0] || a.QtyBedrooms == r.QtyBedroomsList[1] || a.QtyBedroomsMax == r.QtyBedroomsList[1]); // NEW LAYOUT  
-                //        }
-                //        else
-                //        {
-                //            predicateItem = predicateItem
-                //                .And(a => a.QtyBedrooms == r.QtyBedroomsList[0] || a.QtyBedroomsMax == r.QtyBedroomsList[0] || a.QtyBedrooms == r.QtyBedroomsList[1] || a.QtyBedroomsMax == r.QtyBedroomsList[1] || a.QtyBedrooms >= 5); // NEW LAYOUT  
-                //        }
-                //    }
-                //    else if (r.QtyBedroomsList.Count == 3)
-                //    {
-                //        if (!r.QtyBedroomsList.Contains(5))
-                //        {
-                //            predicateItem = predicateItem
-                //                .And(a => a.QtyBedrooms == r.QtyBedroomsList[0] || a.QtyBedroomsMax == r.QtyBedroomsList[0] || a.QtyBedrooms == r.QtyBedroomsList[1] || a.QtyBedroomsMax == r.QtyBedroomsList[1] || a.QtyBedrooms == r.QtyBedroomsList[2] || a.QtyBedroomsMax == r.QtyBedroomsList[2]); // NEW LAYOUT  
-                //        }
-                //        else
-                //        {
-                //            predicateItem = predicateItem
-                //                .And(a => a.QtyBedrooms == r.QtyBedroomsList[0] || a.QtyBedroomsMax == r.QtyBedroomsList[0] || a.QtyBedrooms == r.QtyBedroomsList[1] || a.QtyBedroomsMax == r.QtyBedroomsList[1] || a.QtyBedrooms == r.QtyBedroomsList[2] || a.QtyBedroomsMax == r.QtyBedroomsList[2] || a.QtyBedrooms >= 5); // NEW LAYOUT  
-                //        }
-                //    }
-                //    else if (r.QtyBedroomsList.Count == 4)
-                //    {
-                //        if (!r.QtyBedroomsList.Contains(5))
-                //        {
-                //            predicateItem = predicateItem
-                //                .And(a => a.QtyBedrooms == r.QtyBedroomsList[0] || a.QtyBedroomsMax == r.QtyBedroomsList[0] || a.QtyBedrooms == r.QtyBedroomsList[1] || a.QtyBedroomsMax == r.QtyBedroomsList[1] || a.QtyBedrooms == r.QtyBedroomsList[2] || a.QtyBedroomsMax == r.QtyBedroomsList[2] || a.QtyBedrooms == r.QtyBedroomsList[3] || a.QtyBedroomsMax == r.QtyBedroomsList[3]); // NEW LAYOUT  
-                //        }
-                //        else
-                //        {
-                //            predicateItem = predicateItem
-                //               .And(a => a.QtyBedrooms == r.QtyBedroomsList[0] || a.QtyBedroomsMax == r.QtyBedroomsList[0] || a.QtyBedrooms == r.QtyBedroomsList[1] || a.QtyBedroomsMax == r.QtyBedroomsList[1] || a.QtyBedrooms == r.QtyBedroomsList[2] || a.QtyBedroomsMax == r.QtyBedroomsList[2] || a.QtyBedrooms == r.QtyBedroomsList[3] || a.QtyBedroomsMax == r.QtyBedroomsList[3] || a.QtyBedrooms >= 5); // NEW LAYOUT  
-                //        }
-                //    }
-                //    else if (r.QtyBedroomsList.Count == 5)
-                //    {
-                //        if (!r.QtyBedroomsList.Contains(5))
-                //        {
-                //            predicateItem = predicateItem
-                //                .And(a => a.QtyBedrooms == r.QtyBedroomsList[0] || a.QtyBedroomsMax == r.QtyBedroomsList[0] || a.QtyBedrooms == r.QtyBedroomsList[1] || a.QtyBedroomsMax == r.QtyBedroomsList[1] || a.QtyBedrooms == r.QtyBedroomsList[2] || a.QtyBedroomsMax == r.QtyBedroomsList[2] || a.QtyBedrooms == r.QtyBedroomsList[3] || a.QtyBedroomsMax == r.QtyBedroomsList[3] || a.QtyBedrooms == r.QtyBedroomsList[4] || a.QtyBedroomsMax == r.QtyBedroomsList[4]); // NEW LAYOUT  
-                //        }
-                //        else
-                //        {
-                //            predicateItem = predicateItem
-                //               .And(a => a.QtyBedrooms == r.QtyBedroomsList[0] || a.QtyBedroomsMax == r.QtyBedroomsList[0] || a.QtyBedrooms == r.QtyBedroomsList[1] || a.QtyBedroomsMax == r.QtyBedroomsList[1] || a.QtyBedrooms == r.QtyBedroomsList[2] || a.QtyBedroomsMax == r.QtyBedroomsList[2] || a.QtyBedrooms == r.QtyBedroomsList[3] || a.QtyBedroomsMax == r.QtyBedroomsList[3] || a.QtyBedrooms == r.QtyBedroomsList[4] || a.QtyBedroomsMax == r.QtyBedroomsList[4] || a.QtyBedrooms >= 5); // NEW LAYOU
-                //        }
-                //    }
-                //}
-
-                //if (r.QtySuitesList != null && r.QtySuitesList.Any())
-                //{
-                //    if (r.QtySuitesList.Count == 1)
-                //    {
-                //        if (r.QtySuitesList[0] <= 4)
-                //            predicateItem = predicateItem
-                //            .And(a => a.QtySuites == r.QtySuitesList[0] || a.QtySuitesMax == r.QtySuitesList[0]); // NEW LAYOUT
-                //        else
-                //            predicateItem = predicateItem
-                //                .And(a => a.QtySuites >= 5); // NEW LAYOUT
-                //    }
-                //    else if (r.QtySuitesList.Count == 2)
-                //    {
-                //        if (!r.QtySuitesList.Contains(5))
-                //        {
-                //            predicateItem = predicateItem
-                //                .And(a => a.QtySuites == r.QtySuitesList[0] || a.QtySuitesMax == r.QtySuitesList[0] || a.QtySuites == r.QtySuitesList[1] || a.QtySuitesMax == r.QtySuitesList[1]); // NEW LAYOUT
-                //        }
-                //        else
-                //        {
-                //            predicateItem = predicateItem
-                //               .And(a => a.QtySuites == r.QtySuitesList[0] || a.QtySuitesMax == r.QtySuitesList[0] || a.QtySuites == r.QtySuitesList[1] || a.QtySuitesMax == r.QtySuitesList[1] || a.QtySuites >= 5); // NEW LAYOUT
-                //        }
-                //    }
-                //    else if (r.QtySuitesList.Count == 3)
-                //    {
-                //        if (!r.QtySuitesList.Contains(5))
-                //        {
-                //            predicateItem = predicateItem
-                //                .And(a => a.QtySuites == r.QtySuitesList[0] || a.QtySuitesMax == r.QtySuitesList[0] || a.QtySuites == r.QtySuitesList[1] || a.QtySuitesMax == r.QtySuitesList[1] || a.QtySuites == r.QtySuitesList[2] || a.QtySuitesMax == r.QtySuitesList[2]); // NEW LAYOUT
-                //        }
-                //        else
-                //        {
-                //            predicateItem = predicateItem
-                //               .And(a => a.QtySuites == r.QtySuitesList[0] || a.QtySuitesMax == r.QtySuitesList[0] || a.QtySuites == r.QtySuitesList[1] || a.QtySuitesMax == r.QtySuitesList[1] || a.QtySuites == r.QtySuitesList[2] || a.QtySuitesMax == r.QtySuitesList[2] || a.QtySuites >= 5); // NEW LAYOUT
-                //        }
-                //    }
-                //    else if (r.QtySuitesList.Count == 4)
-                //    {
-                //        if (!r.QtySuitesList.Contains(5))
-                //        {
-                //            predicateItem = predicateItem
-                //                .And(a => a.QtySuites == r.QtySuitesList[0] || a.QtySuitesMax == r.QtySuitesList[0] || a.QtySuites == r.QtySuitesList[1] || a.QtySuitesMax == r.QtySuitesList[1] || a.QtySuites == r.QtySuitesList[2] || a.QtySuitesMax == r.QtySuitesList[2] || a.QtySuites == r.QtySuitesList[3] || a.QtySuitesMax == r.QtySuitesList[3]); // NEW LAYOUT
-                //        }
-                //        else
-                //        {
-                //            predicateItem = predicateItem
-                //               .And(a => a.QtySuites == r.QtySuitesList[0] || a.QtySuitesMax == r.QtySuitesList[0] || a.QtySuites == r.QtySuitesList[1] || a.QtySuitesMax == r.QtySuitesList[1] || a.QtySuites == r.QtySuitesList[2] || a.QtySuitesMax == r.QtySuitesList[2] || a.QtySuites == r.QtySuitesList[3] || a.QtySuitesMax == r.QtySuitesList[3] || a.QtySuites >= 5); // NEW LAYOUT
-                //        }
-                //    }
-                //    else if (r.QtySuitesList.Count == 5)
-                //    {
-                //        if (!r.QtySuitesList.Contains(5))
-                //        {
-                //            predicateItem = predicateItem
-                //                .And(a => a.QtySuites == r.QtySuitesList[0] || a.QtySuitesMax == r.QtySuitesList[0] || a.QtySuites == r.QtySuitesList[1] || a.QtySuitesMax == r.QtySuitesList[1] || a.QtySuites == r.QtySuitesList[2] || a.QtySuitesMax == r.QtySuitesList[2] || a.QtySuites == r.QtySuitesList[3] || a.QtySuitesMax == r.QtySuitesList[3] || a.QtySuites == r.QtySuitesList[4] || a.QtySuitesMax == r.QtySuitesList[4]); // NEW LAYOUT
-                //        }
-                //        else
-                //        {
-                //            predicateItem = predicateItem
-                //               .And(a => a.QtySuites == r.QtySuitesList[0] || a.QtySuitesMax == r.QtySuitesList[0] || a.QtySuites == r.QtySuitesList[1] || a.QtySuitesMax == r.QtySuitesList[1] || a.QtySuites == r.QtySuitesList[2] || a.QtySuitesMax == r.QtySuitesList[2] || a.QtySuites == r.QtySuitesList[3] || a.QtySuitesMax == r.QtySuitesList[3] || a.QtySuites == r.QtySuitesList[4] || a.QtySuitesMax == r.QtySuitesList[4] || a.QtySuites >= 5); // NEW LAYOUT
-                //        }
-                //    }
-
-                //}
+                }
 
                 //if (r.QtyDemarkedVacanciesList != null && r.QtyDemarkedVacanciesList.Any())
                 //{
@@ -534,7 +567,8 @@ namespace ElasticSearch.ApplicationService.RealtyService
                 //predicate = predicate.Or(predicateItem);
             }
 
-            var response = await elasticClient.SearchAsync<Realties>(x => x.Index(indexName).Query(q => q.Bool(bq => bq.Filter(filters))));
+            var response = await elasticClient.SearchAsync<Realties>(x => x.Index(indexName)
+                                              .Query(q => q.Bool(bq => bq.Filter(filters))));
 
             return (response.Documents.ToList(), marketingTypeId);
         }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace ElasticSearch.Domain.Classes
 {
-    public class CategoryTypes
+    public partial class CategoryTypes
     {
         public CategoryTypes()
         {

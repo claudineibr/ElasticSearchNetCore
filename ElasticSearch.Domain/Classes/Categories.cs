@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace ElasticSearch.Domain.Classes
 {
-    public class Categories
+    public partial class Categories
     {
         public Categories()
         {
@@ -19,6 +19,7 @@ namespace ElasticSearch.Domain.Classes
         public DateTime CreatedAt { get; set; }
         [JsonIgnore]
         public DateTime UpdatedAt { get; set; }
+
         public virtual ICollection<CategoryTypes> CategoryTypes { get; set; }
         [JsonIgnore]
         public virtual Users UpdatedByUser { get; set; }

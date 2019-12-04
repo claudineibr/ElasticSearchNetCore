@@ -1,9 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 
 namespace ElasticSearch.Domain.Classes
 {
-    public class DesignUnitCategoryTypes
+    public partial class DesignUnitCategoryTypes
     {
         public int CategoryTypeId { get; set; }
         public int DesignUnitId { get; set; }

@@ -1,13 +1,15 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ElasticSearch.Domain.Classes
 {
-    public class RealtyAttributes
+    public partial class RealtyAttributes
     {
         [JsonIgnore]
         public int RealtyId { get; set; }
-
+        
         public int AttributeId { get; set; }
         [JsonIgnore]
         public int UpdatedByUserId { get; set; }

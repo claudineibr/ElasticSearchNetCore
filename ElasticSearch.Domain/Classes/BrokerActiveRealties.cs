@@ -1,9 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 
 namespace ElasticSearch.Domain.Classes
 {
-    public class BrokerActiveRealties
+    public partial class BrokerActiveRealties
     {
         public int Id { get; set; }
         public int UserId { get; set; }

@@ -1,10 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ElasticSearch.Domain.Classes
 {
-    public class Attributes
+    public partial class Attributes
     {
         public Attributes()
         {

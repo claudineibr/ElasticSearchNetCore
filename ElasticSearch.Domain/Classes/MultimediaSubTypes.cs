@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ElasticSearch.Domain.Classes
 {
-    public class MultimediaSubTypes
+    public partial class MultimediaSubTypes
     {
         public MultimediaSubTypes()
         {

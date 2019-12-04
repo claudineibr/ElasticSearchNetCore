@@ -5,8 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ElasticSearch.Domain.Classes
 {
-    public class Realties
+    public partial class Realties 
     {
+
         private String _Title = string.Empty;
 
         public Realties()
@@ -53,7 +54,7 @@ namespace ElasticSearch.Domain.Classes
         public int? QtyDesign { get; set; }
         public decimal? BestPrice { get; set; }
         public decimal? BestRent { get; set; }
-
+        
         public int? QtyBedrooms { get; set; }
         public int? QtyDemarkedVacancies { get; set; }
         public int? QtySuites { get; set; }
@@ -70,9 +71,8 @@ namespace ElasticSearch.Domain.Classes
         public int? LocalityId { get; set; }
         public int? StateId { get; set; }
         public int? CategoryId { get; set; }
-        public string Title
-        {
-            get { return null; }
+        public string Title {
+            get { return null;  }
             set { _Title = value; }
         }
 
@@ -145,5 +145,6 @@ namespace ElasticSearch.Domain.Classes
 
         [JsonIgnore]
         public virtual IEnumerable<ContactUs> ContactUs { get; internal set; }
+
     }
 }

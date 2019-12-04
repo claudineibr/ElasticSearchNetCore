@@ -1,12 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ElasticSearch.Domain.Classes
 {
-    public class RealtyMultimedia
+    public partial class RealtyMultimedia
     {
-
         [JsonIgnore]
         public int Id { get; set; }
         public string Reference { get; set; }
