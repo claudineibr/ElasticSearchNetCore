@@ -20,11 +20,12 @@ namespace ElasticSearch.WebApi.Utilities
 
             var settings = new ConnectionSettings(pool)
                 .DefaultIndex(defaultIndex)
+                .MaximumRetries(3)
+                .ThrowExceptions()
+                .DisablePing(false)
                 .EnableDebugMode();
 
-
             var client = new ElasticClient(settings);
-
             services.AddSingleton<IElasticClient>(client);
         }
     }

@@ -9,6 +9,7 @@ using NLog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ElasticSearch.ApplicationService.RealtyService
@@ -29,19 +30,32 @@ namespace ElasticSearch.ApplicationService.RealtyService
             this.elasticClient = elasticClient ?? throw new ArgumentNullException(nameof(elasticClient));
         }
 
+        public async Task<List<Realties>> GetAll()
+        {
+            var response = await elasticClient.SearchAsync<Realties>(s => s.Index(indexName).MatchAll());
+
+            return response.Documents.ToList();
+        }
+
         public async Task ReIndex()
         {
-            await elasticClient.DeleteByQueryAsync<Realties>(q => q.Index(indexName).MatchAll());
+            //await elasticClient.DeleteByQueryAsync<Realties>(q => q.Index(indexName).MatchAll());
 
-            var realtys = realtyRepository.GetAll().ToArray();
-            var indexManyAsyncResponse = await elasticClient.IndexManyAsync(realtys, indexName);
-            if (indexManyAsyncResponse.Errors)
-            {
-                foreach (var itemWithError in indexManyAsyncResponse.ItemsWithErrors)
-                {
-                    logger.Error("Failed to index document {0}: {1}", itemWithError.Id, itemWithError.Error);
-                }
-            }
+            //var realtys = realtyRepository.GetAll().ToArray();
+            //var newList = new List<Realties>();
+            //for (int i = 0; i < realtys.Length; i++)
+            //{
+            //    var realty = realtys[i];
+
+            //    if (realty is null)
+            //        continue;
+
+            //    newList.Add(realty);
+            //}
+            //foreach (var product in newList)
+            //{
+            //    await elasticClient.IndexAsync(product, d => d.Index(indexName));
+            //}
         }
 
         public async Task<PagedResult<Realties>> GetbyAttrib(PagedRealtyFilter realtyFilter)

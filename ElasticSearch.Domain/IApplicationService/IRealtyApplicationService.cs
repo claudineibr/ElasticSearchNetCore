@@ -1,4 +1,5 @@
 ﻿using ElasticSearch.Domain.Classes;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ElasticSearch.Domain.IApplicationService
@@ -7,5 +8,6 @@ namespace ElasticSearch.Domain.IApplicationService
     {
         Task<PagedResult<Realties>> GetbyAttrib(PagedRealtyFilter realtyFilter);
         Task ReIndex();
+        Task<List<Realties>> GetAll();
     }
 }

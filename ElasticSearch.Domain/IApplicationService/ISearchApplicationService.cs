@@ -1,4 +1,5 @@
-﻿using ElasticSearch.Domain.ViewModel;
+﻿using ElasticSearch.Domain.Classes;
+using ElasticSearch.Domain.ViewModel;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,5 +12,7 @@ namespace ElasticSearch.Domain.IApplicationService
         Task ReIndexMany();
         Task ReIndexBulkAsync();
         Task ReIndexUpdate();
+        Task<Realties> FindById(string id);
+        Task<List<Realties>> All();
     }
 }
