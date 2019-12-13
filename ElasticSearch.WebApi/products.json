@@ -1,517 +1,517 @@
 [
-        {
-            "id": 2791121,
-            "reference": "16577",
-            "name": "P11 - Pinheiros",
-            "nickName": "P11 - Pinheiros",
-            "description": "Localizado em um dos bairros mais cosmopolita da cidade.\r\nCercado por renomados restaurantes, lojas, galerias de arte, cultura, além de infraestrutura completa de serviços e conveniências. Vizinho de bairros como Vila Madalena e Jardins, Pinheiros tem personalidade própria, onde tudo é perto, oferecendo praticidade e bem estar. Pinheiros está localizado da Zona Oeste de São Paulo. É considerado um bairro nobre e possui uma forte e consolidada área comercial que se espalha entre as avenidas Brigadeiro Faria Lima, Eusébio Matoso, Rebouças, Brasil, Dr. Arnaldo, Nações Unidas e ruas Inácio Pereira da Rocha, dos Pinheiros, Cardeal Arco Verde, Teodoro Sampaio, Fidalga e Fradique Coutinho.\n\nO bairro é considerado um polo de lazer, entretenimento e gastronomia. Você pode aproveitar todas as atrações que são oferecidas no Centro da Cultura Judaica, Espaço Cultura Alberico Rodrigues, Teatro das Artes de Pinheiros, SESC Pinheiros, Instituo Tomie Ohtake e na Galeria Fortes Vilaça.\n",
-            "saleStageId": 3,
-            "totalArea": 1.00,
-            "squareMeterAvaregeValue": 13500.00,
-            "marketingTypeId": 1,
-            "qtyVisits": null,
-            "friendlyUrl": null,
-            "competitor": false,
-            "hasOwner": false,
-            "updatedAt": "2019-10-08T21:24:55.32",
-            "phone": null,
-            "email": null,
-            "discriminator": null,
-            "exclusivity": null,
-            "hash": "8EB58C9B83E162C63827BC551FEA59F3",
-            "publishStatusId": 1,
-            "ranking": null,
-            "booster": 0.00,
-            "descriptionMarketing": null,
-            "qualityRanking": 144.00,
-            "exclusiveChat": false,
-            "qtyDesign": 3,
-            "bestPrice": 1917000.00,
-            "bestRent": 0.00,
-            "qtyBedrooms": 3,
-            "qtyDemarkedVacancies": 2,
-            "qtySuites": 3,
-            "qtyBedroomsMax": 3,
-            "qtyDemarkedVacanciesMax": 2,
-            "qtySuitesMax": 3,
-            "qtyRealtyMultimedia": 11,
-            "privateArea": 142.00,
-            "privateAreaMax": 145.00,
-            "neighborhoodId": 26442,
+  {
+    "id": 2791121,
+    "reference": "P11 - Pinheiros",
+    "name": "P11 - Pinheiros",
+    "nickName": "P11 - Pinheiros",
+    "description": "Localizado em um dos bairros mais cosmopolita da cidade.\r\nCercado por renomados restaurantes, lojas, galerias de arte, cultura, além de infraestrutura completa de serviços e conveniências. Vizinho de bairros como Vila Madalena e Jardins, Pinheiros tem personalidade própria, onde tudo é perto, oferecendo praticidade e bem estar. Pinheiros está localizado da Zona Oeste de São Paulo. É considerado um bairro nobre e possui uma forte e consolidada área comercial que se espalha entre as avenidas Brigadeiro Faria Lima, Eusébio Matoso, Rebouças, Brasil, Dr. Arnaldo, Nações Unidas e ruas Inácio Pereira da Rocha, dos Pinheiros, Cardeal Arco Verde, Teodoro Sampaio, Fidalga e Fradique Coutinho.\n\nO bairro é considerado um polo de lazer, entretenimento e gastronomia. Você pode aproveitar todas as atrações que são oferecidas no Centro da Cultura Judaica, Espaço Cultura Alberico Rodrigues, Teatro das Artes de Pinheiros, SESC Pinheiros, Instituo Tomie Ohtake e na Galeria Fortes Vilaça.\n",
+    "saleStageId": 3,
+    "totalArea": 1.00,
+    "squareMeterAvaregeValue": 13500.00,
+    "marketingTypeId": 1,
+    "qtyVisits": null,
+    "friendlyUrl": null,
+    "competitor": false,
+    "hasOwner": false,
+    "updatedAt": "2019-10-08T21:24:55.32",
+    "phone": null,
+    "email": null,
+    "discriminator": null,
+    "exclusivity": null,
+    "hash": "8EB58C9B83E162C63827BC551FEA59F3",
+    "publishStatusId": 1,
+    "ranking": null,
+    "booster": 0.00,
+    "descriptionMarketing": null,
+    "qualityRanking": 144.00,
+    "exclusiveChat": false,
+    "qtyDesign": 3,
+    "bestPrice": 1917000.00,
+    "bestRent": 0.00,
+    "qtyBedrooms": 3,
+    "qtyDemarkedVacancies": 2,
+    "qtySuites": 3,
+    "qtyBedroomsMax": 3,
+    "qtyDemarkedVacanciesMax": 2,
+    "qtySuitesMax": 3,
+    "qtyRealtyMultimedia": 11,
+    "privateArea": 142.00,
+    "privateAreaMax": 145.00,
+    "neighborhoodId": 26442,
+    "valueZoneId": 235,
+    "localityId": 9668,
+    "stateId": 26,
+    "categoryId": 2,
+    "title": null,
+    "realtyAddresses": {
+      "realtyId": 2791121,
+      "geographicalZoneId": 7,
+      "valueZoneId": 235,
+      "neighborhoodId": 26442,
+      "zipCode": "05422002",
+      "street": "Rua dos Pinheiros",
+      "number": "603",
+      "latitude": -23.5676823,
+      "longitude": -46.6903654,
+      "geographicalZone": null,
+      "locality": {
+        "id": 9668,
+        "name": "São Paulo",
+        "nickName": "S Paulo",
+        "activeFlag": "1",
+        "type": "M",
+        "stateId": 26,
+        "zipCode": "",
+        "seoname": "sao-paulo",
+        "state": {
+          "id": 26,
+          "name": "São Paulo",
+          "sa": "SP"
+        }
+      },
+      "neighborhood": {
+        "id": 26442,
+        "name": "PINHEIROS",
+        "nickName": "PINHEIROS",
+        "valueZoneId": 235,
+        "seoname": "pinheiros",
+        "neighborhoodInfoes": []
+      },
+      "state": {
+        "id": 26,
+        "name": "São Paulo",
+        "sa": "SP"
+      },
+      "valueZone": {
+        "id": 235,
+        "name": "PINHEIROS",
+        "localityId": 9668,
+        "geographicalZoneLocalityId": 29,
+        "createdAt": "2013-11-14T12:55:57.663",
+        "updatedAt": "2013-11-14T12:55:57.663",
+        "updatedByUserId": 2,
+        "neighborhoodInfoes": [],
+        "neighborhoods": [
+          {
+            "id": 26442,
+            "name": "PINHEIROS",
+            "nickName": "PINHEIROS",
             "valueZoneId": 235,
-            "localityId": 9668,
-            "stateId": 26,
-            "categoryId": 2,
-            "title": null,
-            "realtyAddresses": {
-                "realtyId": 2791121,
-                "geographicalZoneId": 7,
-                "valueZoneId": 235,
-                "neighborhoodId": 26442,
-                "zipCode": "05422002",
-                "street": "Rua dos Pinheiros",
-                "number": "603",
-                "latitude": -23.5676823,
-                "longitude": -46.6903654,
-                "geographicalZone": null,
-                "locality": {
-                    "id": 9668,
-                    "name": "São Paulo",
-                    "nickName": "S Paulo",
-                    "activeFlag": "1",
-                    "type": "M",
-                    "stateId": 26,
-                    "zipCode": "",
-                    "seoname": "sao-paulo",
-                    "state": {
-                        "id": 26,
-                        "name": "São Paulo",
-                        "sa": "SP"
-                    }
-                },
-                "neighborhood": {
-                    "id": 26442,
-                    "name": "PINHEIROS",
-                    "nickName": "PINHEIROS",
-                    "valueZoneId": 235,
-                    "seoname": "pinheiros",
-                    "neighborhoodInfoes": []
-                },
-                "state": {
-                    "id": 26,
-                    "name": "São Paulo",
-                    "sa": "SP"
-                },
-                "valueZone": {
-                    "id": 235,
-                    "name": "PINHEIROS",
-                    "localityId": 9668,
-                    "geographicalZoneLocalityId": 29,
-                    "createdAt": "2013-11-14T12:55:57.663",
-                    "updatedAt": "2013-11-14T12:55:57.663",
-                    "updatedByUserId": 2,
-                    "neighborhoodInfoes": [],
-                    "neighborhoods": [
-                        {
-                            "id": 26442,
-                            "name": "PINHEIROS",
-                            "nickName": "PINHEIROS",
-                            "valueZoneId": 235,
-                            "seoname": "pinheiros",
-                            "neighborhoodInfoes": []
-                        }
-                    ],
-                    "zipCodeAddresses": [],
-                    "geographicalZoneLocality": null,
-                    "locality": {
-                        "id": 9668,
-                        "name": "São Paulo",
-                        "nickName": "S Paulo",
-                        "activeFlag": "1",
-                        "type": "M",
-                        "stateId": 26,
-                        "zipCode": "",
-                        "seoname": "sao-paulo",
-                        "state": {
-                            "id": 26,
-                            "name": "São Paulo",
-                            "sa": "SP"
-                        }
-                    },
-                    "updatedByUser": null
-                }
-            },
-            "marketingType": {
-                "id": 1,
-                "description": "Venda"
-            },
-            "saleStage": {
-                "id": 3,
-                "description": "Breve Lançamento"
-            },
-            "realtyStandouts": [],
-            "company_Id": null,
-            "referenceWithoutPrefix": null,
-            "realtyContacts": null,
-            "seoResultSet": null,
-            "minQtyBedrooms": 3,
-            "maxQtyBedrooms": 3,
-            "minQtySuites": 3,
-            "maxQtySuites": 3,
-            "minQtyDemarkedVacancies": 2,
-            "maxQtyDemarkedVacancies": 2,
-            "minPrivateArea": 142.00,
-            "maxPrivateArea": 145.00,
-            "minQtySocialBathrooms": 1,
-            "maxQtySocialBathrooms": 1,
-            "urlSeo": "imovel/p11---pinheiros-pinheiros-sao_paulo-ref-16577",
-            "realtyAttributes": [
-                {
-                    "attributeId": 53,
-                    "attribute": {
-                        "id": 53,
-                        "name": "Piscina com raia"
-                    }
-                },
-                {
-                    "attributeId": 55,
-                    "attribute": {
-                        "id": 55,
-                        "name": "Playground"
-                    }
-                },
-                {
-                    "attributeId": 95,
-                    "attribute": {
-                        "id": 95,
-                        "name": "Academia de ginástica"
-                    }
-                },
-                {
-                    "attributeId": 107,
-                    "attribute": {
-                        "id": 107,
-                        "name": "Piscina adulto descoberta"
-                    }
-                },
-                {
-                    "attributeId": 109,
-                    "attribute": {
-                        "id": 109,
-                        "name": "Piscina infantil descoberta"
-                    }
-                },
-                {
-                    "attributeId": 149,
-                    "attribute": {
-                        "id": 149,
-                        "name": "Solarium"
-                    }
-                }
-            ],
-            "realtyCompanies": [
-                {
-                    "realtyId": 2791121,
-                    "companyId": 230,
-                    "master": true,
-                    "company": {
-                        "id": 230,
-                        "reference": 230,
-                        "name": "Pronto Maber Consultoria de Imóveis S/A",
-                        "subsidiaryTypeId": null,
-                        "phone": null,
-                        "responsibleEmail": null,
-                        "moreInformationEmail": null,
-                        "loadConsistencyEmail": null,
-                        "creci": null,
-                        "fullName": "Pronto Maber Consultoria de Imóveis S/A",
-                        "crediProntoPartner": null,
-                        "crmCompanyId": 230,
-                        "searchScore": null,
-                        "baseUrl": null,
-                        "nickname": "maber",
-                        "lopesNetTerceiros": null,
-                        "applications": [],
-                        "companyAddresses": null,
-                        "companyCompanyGroups": [
-                            {
-                                "companyId": 230,
-                                "companyGroupId": 1,
-                                "updatedByUserId": 1,
-                                "createdAt": "2016-03-08T00:00:00",
-                                "updatedAt": "2016-03-08T00:00:00",
-                                "companyGroup": null
-                            },
-                            {
-                                "companyId": 230,
-                                "companyGroupId": 9,
-                                "updatedByUserId": 1,
-                                "createdAt": "2016-03-08T00:00:00",
-                                "updatedAt": "2016-03-08T00:00:00",
-                                "companyGroup": null
-                            },
-                            {
-                                "companyId": 230,
-                                "companyGroupId": 47,
-                                "updatedByUserId": 2,
-                                "createdAt": "2018-10-30T00:00:00",
-                                "updatedAt": "2018-10-30T00:00:00",
-                                "companyGroup": null
-                            }
-                        ],
-                        "companyRegion": null,
-                        "contactChannels": [
-                            {
-                                "id": 1398,
-                                "stateId": 0,
-                                "localityId": 0,
-                                "companyId": 230,
-                                "sourceSiteId": 1,
-                                "chatCompanyId": 230,
-                                "chatDepartmentId": null,
-                                "phoneNumber": "11-2148-2400",
-                                "callYouPhoneNumber": "11-2148-2400",
-                                "callYouUrl": null,
-                                "email": null,
-                                "responsableName": null,
-                                "responsableEmail": null,
-                                "responsablePhone": null,
-                                "automaticFlag": null,
-                                "altitudeFlag": "S",
-                                "callYouLopesUserId": null,
-                                "logo": "ContactChannels/States/SaoPaulo/logo-lopes-maber.png",
-                                "twentyFourForSeven": null,
-                                "haveChat": true,
-                                "skype": null,
-                                "whatsAppNumber": null,
-                                "rentCompanyId": null,
-                                "chatVersionId": 1,
-                                "chatVersion": null,
-                                "sourceSite": null
-                            }
-                        ],
-                        "userApplications": [],
-                        "subsidiaryType": null
-                    }
-                }
-            ],
-            "realtyDivisions": [
-                {
-                    "id": 2552908,
-                    "name": "Torre 1",
-                    "nickName": "Torre 1",
-                    "description": null,
-                    "saleStageId": 3,
-                    "releaseDate": "2019-10-26T00:00:00",
-                    "startWorkDate": null,
-                    "deliveryKeysDate": "2022-10-26T00:00:00",
-                    "initialForecastDeliveryDate": null,
-                    "ajustedForecastDeliveryDate": null,
-                    "qtyUnits": null,
-                    "qtyFloors": null,
-                    "qtyUnitsByFloor": null,
-                    "qtyElevators": 0,
-                    "constructionStageId": 6,
-                    "designUnits": [
-                        {
-                            "id": 3518278,
-                            "name": "Modelo_142",
-                            "description": null,
-                            "privateArea": 142.00,
-                            "totalArea": 142.00,
-                            "squareMeterValue": 13500.00,
-                            "qtyDemarkedVacancies": 2,
-                            "qtyNotDemarkedVacancies": 0,
-                            "qtyBedrooms": 3,
-                            "qtySuites": 3,
-                            "qtyRooms": 1,
-                            "qtySocialBathrooms": 1,
-                            "qtyKitchens": 1,
-                            "divisionId": 2552908,
-                            "price": null,
-                            "monthlyRent": null,
-                            "municipalTax": null,
-                            "condominiumFees": null,
-                            "designFunding": null,
-                            "designUnitCategoryTypes": [
-                                {
-                                    "categoryTypeId": 7,
-                                    "designUnitId": 3518278,
-                                    "categoryType": {
-                                        "id": 7,
-                                        "description": "Padrão",
-                                        "categoryId": 2
-                                    }
-                                },
-                                {
-                                    "categoryTypeId": 10,
-                                    "designUnitId": 3518278,
-                                    "categoryType": {
-                                        "id": 10,
-                                        "description": "Piso único",
-                                        "categoryId": 2
-                                    }
-                                }
-                            ],
-                            "designUnitMultimedia": []
-                        },
-                        {
-                            "id": 3518279,
-                            "name": "Modelo_145",
-                            "description": null,
-                            "privateArea": 145.00,
-                            "totalArea": 145.00,
-                            "squareMeterValue": 13500.00,
-                            "qtyDemarkedVacancies": 2,
-                            "qtyNotDemarkedVacancies": 0,
-                            "qtyBedrooms": 3,
-                            "qtySuites": 3,
-                            "qtyRooms": 1,
-                            "qtySocialBathrooms": 1,
-                            "qtyKitchens": 1,
-                            "divisionId": 2552908,
-                            "price": null,
-                            "monthlyRent": null,
-                            "municipalTax": null,
-                            "condominiumFees": null,
-                            "designFunding": null,
-                            "designUnitCategoryTypes": [
-                                {
-                                    "categoryTypeId": 7,
-                                    "designUnitId": 3518279,
-                                    "categoryType": {
-                                        "id": 7,
-                                        "description": "Padrão",
-                                        "categoryId": 2
-                                    }
-                                },
-                                {
-                                    "categoryTypeId": 10,
-                                    "designUnitId": 3518279,
-                                    "categoryType": {
-                                        "id": 10,
-                                        "description": "Piso único",
-                                        "categoryId": 2
-                                    }
-                                }
-                            ],
-                            "designUnitMultimedia": []
-                        }
-                    ],
-                    "divisionMultimedia": [],
-                    "constructionStage": null,
-                    "saleStage": {
-                        "id": 3,
-                        "description": "Breve Lançamento"
-                    }
-                }
-            ],
-            "realtyMultimedia": [
-                {
-                    "reference": null,
-                    "realtyId": 2791121,
-                    "filePath": "multimidia/anexos/151910/Fachada",
-                    "extension": "jpg",
-                    "multimediaSubtypeId": 38,
-                    "seopath": "230/16577/lancamento-p11-pinheiros-fachada-1",
-                    "publishStatusId": 1,
-                    "assortment": 1,
-                    "alwaysShow": true,
-                    "title": "Fachada"
-                },
-                {
-                    "reference": null,
-                    "realtyId": 2791121,
-                    "filePath": "multimidia/anexos/151910/P11-Hall-Social",
-                    "extension": "jpg",
-                    "multimediaSubtypeId": 45,
-                    "seopath": "230/16577/lancamento-p11-pinheiros-hall-de-entrada-2",
-                    "publishStatusId": 1,
-                    "assortment": 20,
-                    "alwaysShow": true,
-                    "title": "Perspectivas"
-                },
-                {
-                    "reference": null,
-                    "realtyId": 2791121,
-                    "filePath": "multimidia/anexos/151910/P11-Entrada",
-                    "extension": "jpg",
-                    "multimediaSubtypeId": 45,
-                    "seopath": "230/16577/lancamento-p11-pinheiros-entrada-3",
-                    "publishStatusId": 1,
-                    "assortment": 20,
-                    "alwaysShow": true,
-                    "title": "Perspectivas"
-                },
-                {
-                    "reference": null,
-                    "realtyId": 2791121,
-                    "filePath": "multimidia/anexos/151910/P11-Academia",
-                    "extension": "jpg",
-                    "multimediaSubtypeId": 45,
-                    "seopath": "230/16577/lancamento-p11-pinheiros-academia-4",
-                    "publishStatusId": 1,
-                    "assortment": 20,
-                    "alwaysShow": true,
-                    "title": "Perspectivas"
-                },
-                {
-                    "reference": null,
-                    "realtyId": 2791121,
-                    "filePath": "multimidia/anexos/151910/P11-Area-Gourmet",
-                    "extension": "jpg",
-                    "multimediaSubtypeId": 45,
-                    "seopath": "230/16577/lancamento-p11-pinheiros-area-gourmet-5",
-                    "publishStatusId": 1,
-                    "assortment": 20,
-                    "alwaysShow": true,
-                    "title": "Perspectivas"
-                },
-                {
-                    "reference": null,
-                    "realtyId": 2791121,
-                    "filePath": "multimidia/anexos/151910/P11-Brinquedoteca",
-                    "extension": "jpg",
-                    "multimediaSubtypeId": 45,
-                    "seopath": "230/16577/lancamento-p11-pinheiros-brinquedoteca-6",
-                    "publishStatusId": 1,
-                    "assortment": 20,
-                    "alwaysShow": true,
-                    "title": "Perspectivas"
-                },
-                {
-                    "reference": null,
-                    "realtyId": 2791121,
-                    "filePath": "multimidia/anexos/151910/P11-Decorado-142m",
-                    "extension": "jpg",
-                    "multimediaSubtypeId": 45,
-                    "seopath": "230/16577/lancamento-p11-pinheiros-terraco-gourmet-7",
-                    "publishStatusId": 1,
-                    "assortment": 20,
-                    "alwaysShow": true,
-                    "title": "Perspectivas"
-                },
-                {
-                    "reference": null,
-                    "realtyId": 2791121,
-                    "filePath": "multimidia/anexos/151910/P11-Piscina",
-                    "extension": "jpg",
-                    "multimediaSubtypeId": 45,
-                    "seopath": "230/16577/lancamento-p11-pinheiros-piscina-8",
-                    "publishStatusId": 1,
-                    "assortment": 20,
-                    "alwaysShow": true,
-                    "title": "Perspectivas"
-                },
-                {
-                    "reference": null,
-                    "realtyId": 2791121,
-                    "filePath": "multimidia/anexos/151910/P11-Piscina2",
-                    "extension": "jpg",
-                    "multimediaSubtypeId": 45,
-                    "seopath": "230/16577/lancamento-p11-pinheiros-piscina-9",
-                    "publishStatusId": 1,
-                    "assortment": 20,
-                    "alwaysShow": true,
-                    "title": "Perspectivas"
-                }
-            ],
-            "realtyMultimediaVideos": [
-                {
-                    "reference": null,
-                    "realtyId": null,
-                    "filePath": "https://player.chiligumvideos.com/e0f7df2685",
-                    "extension": "",
-                    "multimediaSubtypeId": 61,
-                    "seopath": "230/16577/lancamento-p11-pinheiros-playerchiligum-10",
-                    "publishStatusId": 1,
-                    "assortment": 10,
-                    "alwaysShow": false,
-                    "title": "Vídeo"
-                }
-            ],
-            "realtyStakeholders": []
+            "seoname": "pinheiros",
+            "neighborhoodInfoes": []
+          }
+        ],
+        "zipCodeAddresses": [],
+        "geographicalZoneLocality": null,
+        "locality": {
+          "id": 9668,
+          "name": "São Paulo",
+          "nickName": "S Paulo",
+          "activeFlag": "1",
+          "type": "M",
+          "stateId": 26,
+          "zipCode": "",
+          "seoname": "sao-paulo",
+          "state": {
+            "id": 26,
+            "name": "São Paulo",
+            "sa": "SP"
+          }
         },
+        "updatedByUser": null
+      }
+    },
+    "marketingType": {
+      "id": 1,
+      "description": "Venda"
+    },
+    "saleStage": {
+      "id": 3,
+      "description": "Breve Lançamento"
+    },
+    "realtyStandouts": [],
+    "company_Id": null,
+    "referenceWithoutPrefix": null,
+    "realtyContacts": null,
+    "seoResultSet": null,
+    "minQtyBedrooms": 3,
+    "maxQtyBedrooms": 3,
+    "minQtySuites": 3,
+    "maxQtySuites": 3,
+    "minQtyDemarkedVacancies": 2,
+    "maxQtyDemarkedVacancies": 2,
+    "minPrivateArea": 142.00,
+    "maxPrivateArea": 145.00,
+    "minQtySocialBathrooms": 1,
+    "maxQtySocialBathrooms": 1,
+    "urlSeo": "imovel/p11---pinheiros-pinheiros-sao_paulo-ref-16577",
+    "realtyAttributes": [
+      {
+        "attributeId": 53,
+        "attribute": {
+          "id": 53,
+          "name": "Piscina com raia"
+        }
+      },
+      {
+        "attributeId": 55,
+        "attribute": {
+          "id": 55,
+          "name": "Playground"
+        }
+      },
+      {
+        "attributeId": 95,
+        "attribute": {
+          "id": 95,
+          "name": "Academia de ginástica"
+        }
+      },
+      {
+        "attributeId": 107,
+        "attribute": {
+          "id": 107,
+          "name": "Piscina adulto descoberta"
+        }
+      },
+      {
+        "attributeId": 109,
+        "attribute": {
+          "id": 109,
+          "name": "Piscina infantil descoberta"
+        }
+      },
+      {
+        "attributeId": 149,
+        "attribute": {
+          "id": 149,
+          "name": "Solarium"
+        }
+      }
+    ],
+    "realtyCompanies": [
+      {
+        "realtyId": 2791121,
+        "companyId": 230,
+        "master": true,
+        "company": {
+          "id": 230,
+          "reference": 230,
+          "name": "Pronto Maber Consultoria de Imóveis S/A",
+          "subsidiaryTypeId": null,
+          "phone": null,
+          "responsibleEmail": null,
+          "moreInformationEmail": null,
+          "loadConsistencyEmail": null,
+          "creci": null,
+          "fullName": "Pronto Maber Consultoria de Imóveis S/A",
+          "crediProntoPartner": null,
+          "crmCompanyId": 230,
+          "searchScore": null,
+          "baseUrl": null,
+          "nickname": "maber",
+          "lopesNetTerceiros": null,
+          "applications": [],
+          "companyAddresses": null,
+          "companyCompanyGroups": [
+            {
+              "companyId": 230,
+              "companyGroupId": 1,
+              "updatedByUserId": 1,
+              "createdAt": "2016-03-08T00:00:00",
+              "updatedAt": "2016-03-08T00:00:00",
+              "companyGroup": null
+            },
+            {
+              "companyId": 230,
+              "companyGroupId": 9,
+              "updatedByUserId": 1,
+              "createdAt": "2016-03-08T00:00:00",
+              "updatedAt": "2016-03-08T00:00:00",
+              "companyGroup": null
+            },
+            {
+              "companyId": 230,
+              "companyGroupId": 47,
+              "updatedByUserId": 2,
+              "createdAt": "2018-10-30T00:00:00",
+              "updatedAt": "2018-10-30T00:00:00",
+              "companyGroup": null
+            }
+          ],
+          "companyRegion": null,
+          "contactChannels": [
+            {
+              "id": 1398,
+              "stateId": 0,
+              "localityId": 0,
+              "companyId": 230,
+              "sourceSiteId": 1,
+              "chatCompanyId": 230,
+              "chatDepartmentId": null,
+              "phoneNumber": "11-2148-2400",
+              "callYouPhoneNumber": "11-2148-2400",
+              "callYouUrl": null,
+              "email": null,
+              "responsableName": null,
+              "responsableEmail": null,
+              "responsablePhone": null,
+              "automaticFlag": null,
+              "altitudeFlag": "S",
+              "callYouLopesUserId": null,
+              "logo": "ContactChannels/States/SaoPaulo/logo-lopes-maber.png",
+              "twentyFourForSeven": null,
+              "haveChat": true,
+              "skype": null,
+              "whatsAppNumber": null,
+              "rentCompanyId": null,
+              "chatVersionId": 1,
+              "chatVersion": null,
+              "sourceSite": null
+            }
+          ],
+          "userApplications": [],
+          "subsidiaryType": null
+        }
+      }
+    ],
+    "realtyDivisions": [
+      {
+        "id": 2552908,
+        "name": "Torre 1",
+        "nickName": "Torre 1",
+        "description": null,
+        "saleStageId": 3,
+        "releaseDate": "2019-10-26T00:00:00",
+        "startWorkDate": null,
+        "deliveryKeysDate": "2022-10-26T00:00:00",
+        "initialForecastDeliveryDate": null,
+        "ajustedForecastDeliveryDate": null,
+        "qtyUnits": null,
+        "qtyFloors": null,
+        "qtyUnitsByFloor": null,
+        "qtyElevators": 0,
+        "constructionStageId": 6,
+        "designUnits": [
+          {
+            "id": 3518278,
+            "name": "Modelo_142",
+            "description": null,
+            "privateArea": 142.00,
+            "totalArea": 142.00,
+            "squareMeterValue": 13500.00,
+            "qtyDemarkedVacancies": 2,
+            "qtyNotDemarkedVacancies": 0,
+            "qtyBedrooms": 3,
+            "qtySuites": 3,
+            "qtyRooms": 1,
+            "qtySocialBathrooms": 1,
+            "qtyKitchens": 1,
+            "divisionId": 2552908,
+            "price": null,
+            "monthlyRent": null,
+            "municipalTax": null,
+            "condominiumFees": null,
+            "designFunding": null,
+            "designUnitCategoryTypes": [
+              {
+                "categoryTypeId": 7,
+                "designUnitId": 3518278,
+                "categoryType": {
+                  "id": 7,
+                  "description": "Padrão",
+                  "categoryId": 2
+                }
+              },
+              {
+                "categoryTypeId": 10,
+                "designUnitId": 3518278,
+                "categoryType": {
+                  "id": 10,
+                  "description": "Piso único",
+                  "categoryId": 2
+                }
+              }
+            ],
+            "designUnitMultimedia": []
+          },
+          {
+            "id": 3518279,
+            "name": "Modelo_145",
+            "description": null,
+            "privateArea": 145.00,
+            "totalArea": 145.00,
+            "squareMeterValue": 13500.00,
+            "qtyDemarkedVacancies": 2,
+            "qtyNotDemarkedVacancies": 0,
+            "qtyBedrooms": 3,
+            "qtySuites": 3,
+            "qtyRooms": 1,
+            "qtySocialBathrooms": 1,
+            "qtyKitchens": 1,
+            "divisionId": 2552908,
+            "price": null,
+            "monthlyRent": null,
+            "municipalTax": null,
+            "condominiumFees": null,
+            "designFunding": null,
+            "designUnitCategoryTypes": [
+              {
+                "categoryTypeId": 7,
+                "designUnitId": 3518279,
+                "categoryType": {
+                  "id": 7,
+                  "description": "Padrão",
+                  "categoryId": 2
+                }
+              },
+              {
+                "categoryTypeId": 10,
+                "designUnitId": 3518279,
+                "categoryType": {
+                  "id": 10,
+                  "description": "Piso único",
+                  "categoryId": 2
+                }
+              }
+            ],
+            "designUnitMultimedia": []
+          }
+        ],
+        "divisionMultimedia": [],
+        "constructionStage": null,
+        "saleStage": {
+          "id": 3,
+          "description": "Breve Lançamento"
+        }
+      }
+    ],
+    "realtyMultimedia": [
+      {
+        "reference": null,
+        "realtyId": 2791121,
+        "filePath": "multimidia/anexos/151910/Fachada",
+        "extension": "jpg",
+        "multimediaSubtypeId": 38,
+        "seopath": "230/16577/lancamento-p11-pinheiros-fachada-1",
+        "publishStatusId": 1,
+        "assortment": 1,
+        "alwaysShow": true,
+        "title": "Fachada"
+      },
+      {
+        "reference": null,
+        "realtyId": 2791121,
+        "filePath": "multimidia/anexos/151910/P11-Hall-Social",
+        "extension": "jpg",
+        "multimediaSubtypeId": 45,
+        "seopath": "230/16577/lancamento-p11-pinheiros-hall-de-entrada-2",
+        "publishStatusId": 1,
+        "assortment": 20,
+        "alwaysShow": true,
+        "title": "Perspectivas"
+      },
+      {
+        "reference": null,
+        "realtyId": 2791121,
+        "filePath": "multimidia/anexos/151910/P11-Entrada",
+        "extension": "jpg",
+        "multimediaSubtypeId": 45,
+        "seopath": "230/16577/lancamento-p11-pinheiros-entrada-3",
+        "publishStatusId": 1,
+        "assortment": 20,
+        "alwaysShow": true,
+        "title": "Perspectivas"
+      },
+      {
+        "reference": null,
+        "realtyId": 2791121,
+        "filePath": "multimidia/anexos/151910/P11-Academia",
+        "extension": "jpg",
+        "multimediaSubtypeId": 45,
+        "seopath": "230/16577/lancamento-p11-pinheiros-academia-4",
+        "publishStatusId": 1,
+        "assortment": 20,
+        "alwaysShow": true,
+        "title": "Perspectivas"
+      },
+      {
+        "reference": null,
+        "realtyId": 2791121,
+        "filePath": "multimidia/anexos/151910/P11-Area-Gourmet",
+        "extension": "jpg",
+        "multimediaSubtypeId": 45,
+        "seopath": "230/16577/lancamento-p11-pinheiros-area-gourmet-5",
+        "publishStatusId": 1,
+        "assortment": 20,
+        "alwaysShow": true,
+        "title": "Perspectivas"
+      },
+      {
+        "reference": null,
+        "realtyId": 2791121,
+        "filePath": "multimidia/anexos/151910/P11-Brinquedoteca",
+        "extension": "jpg",
+        "multimediaSubtypeId": 45,
+        "seopath": "230/16577/lancamento-p11-pinheiros-brinquedoteca-6",
+        "publishStatusId": 1,
+        "assortment": 20,
+        "alwaysShow": true,
+        "title": "Perspectivas"
+      },
+      {
+        "reference": null,
+        "realtyId": 2791121,
+        "filePath": "multimidia/anexos/151910/P11-Decorado-142m",
+        "extension": "jpg",
+        "multimediaSubtypeId": 45,
+        "seopath": "230/16577/lancamento-p11-pinheiros-terraco-gourmet-7",
+        "publishStatusId": 1,
+        "assortment": 20,
+        "alwaysShow": true,
+        "title": "Perspectivas"
+      },
+      {
+        "reference": null,
+        "realtyId": 2791121,
+        "filePath": "multimidia/anexos/151910/P11-Piscina",
+        "extension": "jpg",
+        "multimediaSubtypeId": 45,
+        "seopath": "230/16577/lancamento-p11-pinheiros-piscina-8",
+        "publishStatusId": 1,
+        "assortment": 20,
+        "alwaysShow": true,
+        "title": "Perspectivas"
+      },
+      {
+        "reference": null,
+        "realtyId": 2791121,
+        "filePath": "multimidia/anexos/151910/P11-Piscina2",
+        "extension": "jpg",
+        "multimediaSubtypeId": 45,
+        "seopath": "230/16577/lancamento-p11-pinheiros-piscina-9",
+        "publishStatusId": 1,
+        "assortment": 20,
+        "alwaysShow": true,
+        "title": "Perspectivas"
+      }
+    ],
+    "realtyMultimediaVideos": [
+      {
+        "reference": null,
+        "realtyId": null,
+        "filePath": "https://player.chiligumvideos.com/e0f7df2685",
+        "extension": "",
+        "multimediaSubtypeId": 61,
+        "seopath": "230/16577/lancamento-p11-pinheiros-playerchiligum-10",
+        "publishStatusId": 1,
+        "assortment": 10,
+        "alwaysShow": false,
+        "title": "Vídeo"
+      }
+    ],
+    "realtyStakeholders": []
+  },
         {
             "id": 2796730,
             "reference": "16643",
@@ -1639,467 +1639,467 @@
             "realtyMultimediaVideos": [],
             "realtyStakeholders": []
         },
-        {
-            "id": 2791933,
-            "reference": "16194",
-            "name": "AG Residences - Art",
-            "nickName": "AG Residences - Art",
-            "description": "Consulte um de nossos corretores e confira!  Pinheiros está localizado da Zona Oeste de São Paulo. É considerado um bairro nobre e possui uma forte e consolidada área comercial que se espalha entre as avenidas Brigadeiro Faria Lima, Eusébio Matoso, Rebouças, Brasil, Dr. Arnaldo, Nações Unidas e ruas Inácio Pereira da Rocha, dos Pinheiros, Cardeal Arco Verde, Teodoro Sampaio, Fidalga e Fradique Coutinho.\n\nO bairro é considerado um polo de lazer, entretenimento e gastronomia. Você pode aproveitar todas as atrações que são oferecidas no Centro da Cultura Judaica, Espaço Cultura Alberico Rodrigues, Teatro das Artes de Pinheiros, SESC Pinheiros, Instituo Tomie Ohtake e na Galeria Fortes Vilaça.\n",
-            "saleStageId": 3,
-            "totalArea": 1.00,
-            "squareMeterAvaregeValue": 13500.00,
-            "marketingTypeId": 1,
-            "qtyVisits": null,
-            "friendlyUrl": null,
-            "competitor": false,
-            "hasOwner": false,
-            "updatedAt": "2019-10-11T21:25:45.687",
-            "phone": null,
-            "email": null,
-            "discriminator": null,
-            "exclusivity": null,
-            "hash": "0117E4857773CD39DFDD9B491DEAF4E8",
-            "publishStatusId": 1,
-            "ranking": null,
-            "booster": 0.00,
-            "descriptionMarketing": null,
-            "qualityRanking": 138.00,
-            "exclusiveChat": false,
-            "qtyDesign": 3,
-            "bestPrice": 4185000.00,
-            "bestRent": 0.00,
-            "qtyBedrooms": 4,
-            "qtyDemarkedVacancies": 4,
-            "qtySuites": 4,
-            "qtyBedroomsMax": 4,
-            "qtyDemarkedVacanciesMax": 4,
-            "qtySuitesMax": 4,
-            "qtyRealtyMultimedia": 7,
-            "privateArea": 310.00,
-            "privateAreaMax": 341.00,
-            "neighborhoodId": 26442,
+  {
+    "id": 2791933,
+    "reference": "Residences - Art",
+    "name": "AG Residences - Art",
+    "nickName": "AG Residences - Art",
+    "description": "Consulte um de nossos corretores e confira!  Pinheiros está localizado da Zona Oeste de São Paulo. É considerado um bairro nobre e possui uma forte e consolidada área comercial que se espalha entre as avenidas Brigadeiro Faria Lima, Eusébio Matoso, Rebouças, Brasil, Dr. Arnaldo, Nações Unidas e ruas Inácio Pereira da Rocha, dos Pinheiros, Cardeal Arco Verde, Teodoro Sampaio, Fidalga e Fradique Coutinho.\n\nO bairro é considerado um polo de lazer, entretenimento e gastronomia. Você pode aproveitar todas as atrações que são oferecidas no Centro da Cultura Judaica, Espaço Cultura Alberico Rodrigues, Teatro das Artes de Pinheiros, SESC Pinheiros, Instituo Tomie Ohtake e na Galeria Fortes Vilaça.\n",
+    "saleStageId": 3,
+    "totalArea": 1.00,
+    "squareMeterAvaregeValue": 13500.00,
+    "marketingTypeId": 1,
+    "qtyVisits": null,
+    "friendlyUrl": null,
+    "competitor": false,
+    "hasOwner": false,
+    "updatedAt": "2019-10-11T21:25:45.687",
+    "phone": null,
+    "email": null,
+    "discriminator": null,
+    "exclusivity": null,
+    "hash": "0117E4857773CD39DFDD9B491DEAF4E8",
+    "publishStatusId": 1,
+    "ranking": null,
+    "booster": 0.00,
+    "descriptionMarketing": null,
+    "qualityRanking": 138.00,
+    "exclusiveChat": false,
+    "qtyDesign": 3,
+    "bestPrice": 4185000.00,
+    "bestRent": 0.00,
+    "qtyBedrooms": 4,
+    "qtyDemarkedVacancies": 4,
+    "qtySuites": 4,
+    "qtyBedroomsMax": 4,
+    "qtyDemarkedVacanciesMax": 4,
+    "qtySuitesMax": 4,
+    "qtyRealtyMultimedia": 7,
+    "privateArea": 310.00,
+    "privateAreaMax": 341.00,
+    "neighborhoodId": 26442,
+    "valueZoneId": 235,
+    "localityId": 9668,
+    "stateId": 26,
+    "categoryId": 2,
+    "title": null,
+    "realtyAddresses": {
+      "realtyId": 2791933,
+      "geographicalZoneId": 7,
+      "valueZoneId": 235,
+      "neighborhoodId": 26442,
+      "zipCode": "05410001",
+      "street": "Rua Alves Guimarães",
+      "number": "205",
+      "latitude": -23.5602652,
+      "longitude": -46.6752210,
+      "geographicalZone": null,
+      "locality": {
+        "id": 9668,
+        "name": "São Paulo",
+        "nickName": "S Paulo",
+        "activeFlag": "1",
+        "type": "M",
+        "stateId": 26,
+        "zipCode": "",
+        "seoname": "sao-paulo",
+        "state": {
+          "id": 26,
+          "name": "São Paulo",
+          "sa": "SP"
+        }
+      },
+      "neighborhood": {
+        "id": 26442,
+        "name": "PINHEIROS",
+        "nickName": "PINHEIROS",
+        "valueZoneId": 235,
+        "seoname": "pinheiros",
+        "neighborhoodInfoes": []
+      },
+      "state": {
+        "id": 26,
+        "name": "São Paulo",
+        "sa": "SP"
+      },
+      "valueZone": {
+        "id": 235,
+        "name": "PINHEIROS",
+        "localityId": 9668,
+        "geographicalZoneLocalityId": 29,
+        "createdAt": "2013-11-14T12:55:57.663",
+        "updatedAt": "2013-11-14T12:55:57.663",
+        "updatedByUserId": 2,
+        "neighborhoodInfoes": [],
+        "neighborhoods": [
+          {
+            "id": 26442,
+            "name": "PINHEIROS",
+            "nickName": "PINHEIROS",
             "valueZoneId": 235,
-            "localityId": 9668,
-            "stateId": 26,
-            "categoryId": 2,
-            "title": null,
-            "realtyAddresses": {
-                "realtyId": 2791933,
-                "geographicalZoneId": 7,
-                "valueZoneId": 235,
-                "neighborhoodId": 26442,
-                "zipCode": "05410001",
-                "street": "Rua Alves Guimarães",
-                "number": "205",
-                "latitude": -23.5602652,
-                "longitude": -46.6752210,
-                "geographicalZone": null,
-                "locality": {
-                    "id": 9668,
-                    "name": "São Paulo",
-                    "nickName": "S Paulo",
-                    "activeFlag": "1",
-                    "type": "M",
-                    "stateId": 26,
-                    "zipCode": "",
-                    "seoname": "sao-paulo",
-                    "state": {
-                        "id": 26,
-                        "name": "São Paulo",
-                        "sa": "SP"
-                    }
-                },
-                "neighborhood": {
-                    "id": 26442,
-                    "name": "PINHEIROS",
-                    "nickName": "PINHEIROS",
-                    "valueZoneId": 235,
-                    "seoname": "pinheiros",
-                    "neighborhoodInfoes": []
-                },
-                "state": {
-                    "id": 26,
-                    "name": "São Paulo",
-                    "sa": "SP"
-                },
-                "valueZone": {
-                    "id": 235,
-                    "name": "PINHEIROS",
-                    "localityId": 9668,
-                    "geographicalZoneLocalityId": 29,
-                    "createdAt": "2013-11-14T12:55:57.663",
-                    "updatedAt": "2013-11-14T12:55:57.663",
-                    "updatedByUserId": 2,
-                    "neighborhoodInfoes": [],
-                    "neighborhoods": [
-                        {
-                            "id": 26442,
-                            "name": "PINHEIROS",
-                            "nickName": "PINHEIROS",
-                            "valueZoneId": 235,
-                            "seoname": "pinheiros",
-                            "neighborhoodInfoes": []
-                        }
-                    ],
-                    "zipCodeAddresses": [],
-                    "geographicalZoneLocality": null,
-                    "locality": {
-                        "id": 9668,
-                        "name": "São Paulo",
-                        "nickName": "S Paulo",
-                        "activeFlag": "1",
-                        "type": "M",
-                        "stateId": 26,
-                        "zipCode": "",
-                        "seoname": "sao-paulo",
-                        "state": {
-                            "id": 26,
-                            "name": "São Paulo",
-                            "sa": "SP"
-                        }
-                    },
-                    "updatedByUser": null
-                }
-            },
-            "marketingType": {
-                "id": 1,
-                "description": "Venda"
-            },
-            "saleStage": {
-                "id": 3,
-                "description": "Breve Lançamento"
-            },
-            "realtyStandouts": [],
-            "company_Id": null,
-            "referenceWithoutPrefix": null,
-            "realtyContacts": null,
-            "seoResultSet": null,
-            "minQtyBedrooms": 4,
-            "maxQtyBedrooms": 4,
-            "minQtySuites": 4,
-            "maxQtySuites": 4,
-            "minQtyDemarkedVacancies": 4,
-            "maxQtyDemarkedVacancies": 4,
-            "minPrivateArea": 310.00,
-            "maxPrivateArea": 341.00,
-            "minQtySocialBathrooms": 1,
-            "maxQtySocialBathrooms": 1,
-            "urlSeo": "imovel/ag-residences---art-pinheiros-sao_paulo-ref-16194",
-            "realtyAttributes": [],
-            "realtyCompanies": [
-                {
-                    "realtyId": 2791933,
-                    "companyId": 240,
-                    "master": true,
-                    "company": {
-                        "id": 240,
-                        "reference": 240,
-                        "name": "Lopes São Paulo",
-                        "subsidiaryTypeId": null,
-                        "phone": null,
-                        "responsibleEmail": null,
-                        "moreInformationEmail": null,
-                        "loadConsistencyEmail": null,
-                        "creci": "CRECI/SP 2ª Região nº J.19585",
-                        "fullName": "LPS Brasil - Consultoria de Imóveis S/A",
-                        "crediProntoPartner": null,
-                        "crmCompanyId": 240,
-                        "searchScore": null,
-                        "baseUrl": null,
-                        "nickname": "lps-sao-paulo",
-                        "lopesNetTerceiros": null,
-                        "applications": [],
-                        "companyAddresses": null,
-                        "companyCompanyGroups": [
-                            {
-                                "companyId": 240,
-                                "companyGroupId": 1,
-                                "updatedByUserId": 2,
-                                "createdAt": "2016-01-01T00:00:00",
-                                "updatedAt": "2016-01-01T00:00:00",
-                                "companyGroup": null
-                            },
-                            {
-                                "companyId": 240,
-                                "companyGroupId": 9,
-                                "updatedByUserId": 2,
-                                "createdAt": "2016-01-01T00:00:00",
-                                "updatedAt": "2016-01-01T00:00:00",
-                                "companyGroup": null
-                            },
-                            {
-                                "companyId": 240,
-                                "companyGroupId": 80,
-                                "updatedByUserId": 2,
-                                "createdAt": "2018-11-06T00:00:00",
-                                "updatedAt": "2018-11-06T00:00:00",
-                                "companyGroup": null
-                            }
-                        ],
-                        "companyRegion": null,
-                        "contactChannels": [
-                            {
-                                "id": 1382,
-                                "stateId": 26,
-                                "localityId": 0,
-                                "companyId": 240,
-                                "sourceSiteId": 1,
-                                "chatCompanyId": 240,
-                                "chatDepartmentId": null,
-                                "phoneNumber": "11-3067-0500",
-                                "callYouPhoneNumber": "01130670500",
-                                "callYouUrl": "http://www.directdial.com.br/dc0800web/discador/index/pinHash/b1d977b6ee7c907472f1f213d77577bc",
-                                "email": null,
-                                "responsableName": null,
-                                "responsableEmail": null,
-                                "responsablePhone": null,
-                                "automaticFlag": "S",
-                                "altitudeFlag": "S",
-                                "callYouLopesUserId": 1,
-                                "logo": "ContactChannels/States/SaoPaulo/logo-lopes83anos.png",
-                                "twentyFourForSeven": true,
-                                "haveChat": true,
-                                "skype": null,
-                                "whatsAppNumber": null,
-                                "rentCompanyId": 200,
-                                "chatVersionId": 2,
-                                "chatVersion": null,
-                                "sourceSite": null
-                            },
-                            {
-                                "id": 1383,
-                                "stateId": 26,
-                                "localityId": 9668,
-                                "companyId": 240,
-                                "sourceSiteId": 1,
-                                "chatCompanyId": 240,
-                                "chatDepartmentId": null,
-                                "phoneNumber": "11-3067-0500",
-                                "callYouPhoneNumber": "01130670500",
-                                "callYouUrl": "http://www.directdial.com.br/dc0800web/discador/index/pinHash/b1d977b6ee7c907472f1f213d77577bc",
-                                "email": null,
-                                "responsableName": null,
-                                "responsableEmail": null,
-                                "responsablePhone": null,
-                                "automaticFlag": "S",
-                                "altitudeFlag": "S",
-                                "callYouLopesUserId": 1,
-                                "logo": "ContactChannels/States/SaoPaulo/logo-lopes83anos.png",
-                                "twentyFourForSeven": true,
-                                "haveChat": true,
-                                "skype": null,
-                                "whatsAppNumber": null,
-                                "rentCompanyId": 200,
-                                "chatVersionId": 2,
-                                "chatVersion": null,
-                                "sourceSite": null
-                            }
-                        ],
-                        "userApplications": [],
-                        "subsidiaryType": null
-                    }
-                }
-            ],
-            "realtyDivisions": [
-                {
-                    "id": 2553738,
-                    "name": "AG Residences - Art",
-                    "nickName": "AG Residences - Art",
-                    "description": null,
-                    "saleStageId": 3,
-                    "releaseDate": "2020-03-14T00:00:00",
-                    "startWorkDate": null,
-                    "deliveryKeysDate": "2021-05-25T00:00:00",
-                    "initialForecastDeliveryDate": null,
-                    "ajustedForecastDeliveryDate": null,
-                    "qtyUnits": null,
-                    "qtyFloors": null,
-                    "qtyUnitsByFloor": null,
-                    "qtyElevators": 1,
-                    "constructionStageId": 6,
-                    "designUnits": [
-                        {
-                            "id": 3519373,
-                            "name": "Modelo_310,00",
-                            "description": null,
-                            "privateArea": 310.00,
-                            "totalArea": 310.00,
-                            "squareMeterValue": 13500.00,
-                            "qtyDemarkedVacancies": 4,
-                            "qtyNotDemarkedVacancies": 0,
-                            "qtyBedrooms": 4,
-                            "qtySuites": 4,
-                            "qtyRooms": 1,
-                            "qtySocialBathrooms": 1,
-                            "qtyKitchens": 1,
-                            "divisionId": 2553738,
-                            "price": null,
-                            "monthlyRent": null,
-                            "municipalTax": null,
-                            "condominiumFees": null,
-                            "designFunding": null,
-                            "designUnitCategoryTypes": [
-                                {
-                                    "categoryTypeId": 7,
-                                    "designUnitId": 3519373,
-                                    "categoryType": {
-                                        "id": 7,
-                                        "description": "Padrão",
-                                        "categoryId": 2
-                                    }
-                                },
-                                {
-                                    "categoryTypeId": 10,
-                                    "designUnitId": 3519373,
-                                    "categoryType": {
-                                        "id": 10,
-                                        "description": "Piso único",
-                                        "categoryId": 2
-                                    }
-                                }
-                            ],
-                            "designUnitMultimedia": []
-                        },
-                        {
-                            "id": 3519374,
-                            "name": "Modelo_341,00",
-                            "description": null,
-                            "privateArea": 341.00,
-                            "totalArea": 341.00,
-                            "squareMeterValue": 13500.00,
-                            "qtyDemarkedVacancies": 4,
-                            "qtyNotDemarkedVacancies": 0,
-                            "qtyBedrooms": 4,
-                            "qtySuites": 4,
-                            "qtyRooms": 1,
-                            "qtySocialBathrooms": 1,
-                            "qtyKitchens": 1,
-                            "divisionId": 2553738,
-                            "price": null,
-                            "monthlyRent": null,
-                            "municipalTax": null,
-                            "condominiumFees": null,
-                            "designFunding": null,
-                            "designUnitCategoryTypes": [
-                                {
-                                    "categoryTypeId": 7,
-                                    "designUnitId": 3519374,
-                                    "categoryType": {
-                                        "id": 7,
-                                        "description": "Padrão",
-                                        "categoryId": 2
-                                    }
-                                },
-                                {
-                                    "categoryTypeId": 10,
-                                    "designUnitId": 3519374,
-                                    "categoryType": {
-                                        "id": 10,
-                                        "description": "Piso único",
-                                        "categoryId": 2
-                                    }
-                                }
-                            ],
-                            "designUnitMultimedia": []
-                        }
-                    ],
-                    "divisionMultimedia": [],
-                    "constructionStage": null,
-                    "saleStage": {
-                        "id": 3,
-                        "description": "Breve Lançamento"
-                    }
-                }
-            ],
-            "realtyMultimedia": [
-                {
-                    "reference": null,
-                    "realtyId": 2791933,
-                    "filePath": "multimidia/anexos/177420/01-ESTACAO-OSCAR-FREIRE",
-                    "extension": "jpg",
-                    "multimediaSubtypeId": 45,
-                    "seopath": "240/16194/lancamento-ag-residences-art-estacao-oscar-freire-1",
-                    "publishStatusId": 1,
-                    "assortment": 20,
-                    "alwaysShow": true,
-                    "title": "Perspectivas"
-                },
-                {
-                    "reference": null,
-                    "realtyId": 2791933,
-                    "filePath": "multimidia/anexos/177420/02-RUA-OSCAR-FREIRE",
-                    "extension": "jpg",
-                    "multimediaSubtypeId": 45,
-                    "seopath": "240/16194/lancamento-ag-residences-art-rua-oscar-freire-2",
-                    "publishStatusId": 1,
-                    "assortment": 20,
-                    "alwaysShow": true,
-                    "title": "Perspectivas"
-                },
-                {
-                    "reference": null,
-                    "realtyId": 2791933,
-                    "filePath": "multimidia/anexos/177420/03-AV.-REBOUCAS",
-                    "extension": "jpg",
-                    "multimediaSubtypeId": 45,
-                    "seopath": "240/16194/lancamento-ag-residences-art-av-reboucas-3",
-                    "publishStatusId": 1,
-                    "assortment": 20,
-                    "alwaysShow": true,
-                    "title": "Perspectivas"
-                },
-                {
-                    "reference": null,
-                    "realtyId": 2791933,
-                    "filePath": "multimidia/anexos/177420/04-SHOPPING-FREI-CANECA",
-                    "extension": "jpg",
-                    "multimediaSubtypeId": 45,
-                    "seopath": "240/16194/lancamento-ag-residences-art-shopping-frei-caneca-4",
-                    "publishStatusId": 1,
-                    "assortment": 20,
-                    "alwaysShow": true,
-                    "title": "Perspectivas"
-                },
-                {
-                    "reference": null,
-                    "realtyId": 2791933,
-                    "filePath": "multimidia/anexos/177420/05-RESTAURANTE-ARTURITO",
-                    "extension": "jpg",
-                    "multimediaSubtypeId": 45,
-                    "seopath": "240/16194/lancamento-ag-residences-art-restaura-arturito-5",
-                    "publishStatusId": 1,
-                    "assortment": 20,
-                    "alwaysShow": true,
-                    "title": "Perspectivas"
-                },
-                {
-                    "reference": null,
-                    "realtyId": 2791933,
-                    "filePath": "multimidia/anexos/177420/06-PAO-DE-ACUCAR",
-                    "extension": "jpg",
-                    "multimediaSubtypeId": 45,
-                    "seopath": "240/16194/lancamento-ag-residences-art-pao-de-acucar-6",
-                    "publishStatusId": 1,
-                    "assortment": 20,
-                    "alwaysShow": true,
-                    "title": "Perspectivas"
-                },
-                {
-                    "reference": null,
-                    "realtyId": 2791933,
-                    "filePath": "multimidia/anexos/177420/07-HOSPITAL-SANTA-MAGGIORE",
-                    "extension": "jpg",
-                    "multimediaSubtypeId": 45,
-                    "seopath": "240/16194/lancamento-ag-residences-art-hospital-santa-maggiore-7",
-                    "publishStatusId": 1,
-                    "assortment": 20,
-                    "alwaysShow": true,
-                    "title": "Perspectivas"
-                }
-            ],
-            "realtyMultimediaVideos": [],
-            "realtyStakeholders": []
+            "seoname": "pinheiros",
+            "neighborhoodInfoes": []
+          }
+        ],
+        "zipCodeAddresses": [],
+        "geographicalZoneLocality": null,
+        "locality": {
+          "id": 9668,
+          "name": "São Paulo",
+          "nickName": "S Paulo",
+          "activeFlag": "1",
+          "type": "M",
+          "stateId": 26,
+          "zipCode": "",
+          "seoname": "sao-paulo",
+          "state": {
+            "id": 26,
+            "name": "São Paulo",
+            "sa": "SP"
+          }
         },
+        "updatedByUser": null
+      }
+    },
+    "marketingType": {
+      "id": 1,
+      "description": "Venda"
+    },
+    "saleStage": {
+      "id": 3,
+      "description": "Breve Lançamento"
+    },
+    "realtyStandouts": [],
+    "company_Id": null,
+    "referenceWithoutPrefix": null,
+    "realtyContacts": null,
+    "seoResultSet": null,
+    "minQtyBedrooms": 4,
+    "maxQtyBedrooms": 4,
+    "minQtySuites": 4,
+    "maxQtySuites": 4,
+    "minQtyDemarkedVacancies": 4,
+    "maxQtyDemarkedVacancies": 4,
+    "minPrivateArea": 310.00,
+    "maxPrivateArea": 341.00,
+    "minQtySocialBathrooms": 1,
+    "maxQtySocialBathrooms": 1,
+    "urlSeo": "imovel/ag-residences---art-pinheiros-sao_paulo-ref-16194",
+    "realtyAttributes": [],
+    "realtyCompanies": [
+      {
+        "realtyId": 2791933,
+        "companyId": 240,
+        "master": true,
+        "company": {
+          "id": 240,
+          "reference": 240,
+          "name": "Lopes São Paulo",
+          "subsidiaryTypeId": null,
+          "phone": null,
+          "responsibleEmail": null,
+          "moreInformationEmail": null,
+          "loadConsistencyEmail": null,
+          "creci": "CRECI/SP 2ª Região nº J.19585",
+          "fullName": "LPS Brasil - Consultoria de Imóveis S/A",
+          "crediProntoPartner": null,
+          "crmCompanyId": 240,
+          "searchScore": null,
+          "baseUrl": null,
+          "nickname": "lps-sao-paulo",
+          "lopesNetTerceiros": null,
+          "applications": [],
+          "companyAddresses": null,
+          "companyCompanyGroups": [
+            {
+              "companyId": 240,
+              "companyGroupId": 1,
+              "updatedByUserId": 2,
+              "createdAt": "2016-01-01T00:00:00",
+              "updatedAt": "2016-01-01T00:00:00",
+              "companyGroup": null
+            },
+            {
+              "companyId": 240,
+              "companyGroupId": 9,
+              "updatedByUserId": 2,
+              "createdAt": "2016-01-01T00:00:00",
+              "updatedAt": "2016-01-01T00:00:00",
+              "companyGroup": null
+            },
+            {
+              "companyId": 240,
+              "companyGroupId": 80,
+              "updatedByUserId": 2,
+              "createdAt": "2018-11-06T00:00:00",
+              "updatedAt": "2018-11-06T00:00:00",
+              "companyGroup": null
+            }
+          ],
+          "companyRegion": null,
+          "contactChannels": [
+            {
+              "id": 1382,
+              "stateId": 26,
+              "localityId": 0,
+              "companyId": 240,
+              "sourceSiteId": 1,
+              "chatCompanyId": 240,
+              "chatDepartmentId": null,
+              "phoneNumber": "11-3067-0500",
+              "callYouPhoneNumber": "01130670500",
+              "callYouUrl": "http://www.directdial.com.br/dc0800web/discador/index/pinHash/b1d977b6ee7c907472f1f213d77577bc",
+              "email": null,
+              "responsableName": null,
+              "responsableEmail": null,
+              "responsablePhone": null,
+              "automaticFlag": "S",
+              "altitudeFlag": "S",
+              "callYouLopesUserId": 1,
+              "logo": "ContactChannels/States/SaoPaulo/logo-lopes83anos.png",
+              "twentyFourForSeven": true,
+              "haveChat": true,
+              "skype": null,
+              "whatsAppNumber": null,
+              "rentCompanyId": 200,
+              "chatVersionId": 2,
+              "chatVersion": null,
+              "sourceSite": null
+            },
+            {
+              "id": 1383,
+              "stateId": 26,
+              "localityId": 9668,
+              "companyId": 240,
+              "sourceSiteId": 1,
+              "chatCompanyId": 240,
+              "chatDepartmentId": null,
+              "phoneNumber": "11-3067-0500",
+              "callYouPhoneNumber": "01130670500",
+              "callYouUrl": "http://www.directdial.com.br/dc0800web/discador/index/pinHash/b1d977b6ee7c907472f1f213d77577bc",
+              "email": null,
+              "responsableName": null,
+              "responsableEmail": null,
+              "responsablePhone": null,
+              "automaticFlag": "S",
+              "altitudeFlag": "S",
+              "callYouLopesUserId": 1,
+              "logo": "ContactChannels/States/SaoPaulo/logo-lopes83anos.png",
+              "twentyFourForSeven": true,
+              "haveChat": true,
+              "skype": null,
+              "whatsAppNumber": null,
+              "rentCompanyId": 200,
+              "chatVersionId": 2,
+              "chatVersion": null,
+              "sourceSite": null
+            }
+          ],
+          "userApplications": [],
+          "subsidiaryType": null
+        }
+      }
+    ],
+    "realtyDivisions": [
+      {
+        "id": 2553738,
+        "name": "AG Residences - Art",
+        "nickName": "AG Residences - Art",
+        "description": null,
+        "saleStageId": 3,
+        "releaseDate": "2020-03-14T00:00:00",
+        "startWorkDate": null,
+        "deliveryKeysDate": "2021-05-25T00:00:00",
+        "initialForecastDeliveryDate": null,
+        "ajustedForecastDeliveryDate": null,
+        "qtyUnits": null,
+        "qtyFloors": null,
+        "qtyUnitsByFloor": null,
+        "qtyElevators": 1,
+        "constructionStageId": 6,
+        "designUnits": [
+          {
+            "id": 3519373,
+            "name": "Modelo_310,00",
+            "description": null,
+            "privateArea": 310.00,
+            "totalArea": 310.00,
+            "squareMeterValue": 13500.00,
+            "qtyDemarkedVacancies": 4,
+            "qtyNotDemarkedVacancies": 0,
+            "qtyBedrooms": 4,
+            "qtySuites": 4,
+            "qtyRooms": 1,
+            "qtySocialBathrooms": 1,
+            "qtyKitchens": 1,
+            "divisionId": 2553738,
+            "price": null,
+            "monthlyRent": null,
+            "municipalTax": null,
+            "condominiumFees": null,
+            "designFunding": null,
+            "designUnitCategoryTypes": [
+              {
+                "categoryTypeId": 7,
+                "designUnitId": 3519373,
+                "categoryType": {
+                  "id": 7,
+                  "description": "Padrão",
+                  "categoryId": 2
+                }
+              },
+              {
+                "categoryTypeId": 10,
+                "designUnitId": 3519373,
+                "categoryType": {
+                  "id": 10,
+                  "description": "Piso único",
+                  "categoryId": 2
+                }
+              }
+            ],
+            "designUnitMultimedia": []
+          },
+          {
+            "id": 3519374,
+            "name": "Modelo_341,00",
+            "description": null,
+            "privateArea": 341.00,
+            "totalArea": 341.00,
+            "squareMeterValue": 13500.00,
+            "qtyDemarkedVacancies": 4,
+            "qtyNotDemarkedVacancies": 0,
+            "qtyBedrooms": 4,
+            "qtySuites": 4,
+            "qtyRooms": 1,
+            "qtySocialBathrooms": 1,
+            "qtyKitchens": 1,
+            "divisionId": 2553738,
+            "price": null,
+            "monthlyRent": null,
+            "municipalTax": null,
+            "condominiumFees": null,
+            "designFunding": null,
+            "designUnitCategoryTypes": [
+              {
+                "categoryTypeId": 7,
+                "designUnitId": 3519374,
+                "categoryType": {
+                  "id": 7,
+                  "description": "Padrão",
+                  "categoryId": 2
+                }
+              },
+              {
+                "categoryTypeId": 10,
+                "designUnitId": 3519374,
+                "categoryType": {
+                  "id": 10,
+                  "description": "Piso único",
+                  "categoryId": 2
+                }
+              }
+            ],
+            "designUnitMultimedia": []
+          }
+        ],
+        "divisionMultimedia": [],
+        "constructionStage": null,
+        "saleStage": {
+          "id": 3,
+          "description": "Breve Lançamento"
+        }
+      }
+    ],
+    "realtyMultimedia": [
+      {
+        "reference": null,
+        "realtyId": 2791933,
+        "filePath": "multimidia/anexos/177420/01-ESTACAO-OSCAR-FREIRE",
+        "extension": "jpg",
+        "multimediaSubtypeId": 45,
+        "seopath": "240/16194/lancamento-ag-residences-art-estacao-oscar-freire-1",
+        "publishStatusId": 1,
+        "assortment": 20,
+        "alwaysShow": true,
+        "title": "Perspectivas"
+      },
+      {
+        "reference": null,
+        "realtyId": 2791933,
+        "filePath": "multimidia/anexos/177420/02-RUA-OSCAR-FREIRE",
+        "extension": "jpg",
+        "multimediaSubtypeId": 45,
+        "seopath": "240/16194/lancamento-ag-residences-art-rua-oscar-freire-2",
+        "publishStatusId": 1,
+        "assortment": 20,
+        "alwaysShow": true,
+        "title": "Perspectivas"
+      },
+      {
+        "reference": null,
+        "realtyId": 2791933,
+        "filePath": "multimidia/anexos/177420/03-AV.-REBOUCAS",
+        "extension": "jpg",
+        "multimediaSubtypeId": 45,
+        "seopath": "240/16194/lancamento-ag-residences-art-av-reboucas-3",
+        "publishStatusId": 1,
+        "assortment": 20,
+        "alwaysShow": true,
+        "title": "Perspectivas"
+      },
+      {
+        "reference": null,
+        "realtyId": 2791933,
+        "filePath": "multimidia/anexos/177420/04-SHOPPING-FREI-CANECA",
+        "extension": "jpg",
+        "multimediaSubtypeId": 45,
+        "seopath": "240/16194/lancamento-ag-residences-art-shopping-frei-caneca-4",
+        "publishStatusId": 1,
+        "assortment": 20,
+        "alwaysShow": true,
+        "title": "Perspectivas"
+      },
+      {
+        "reference": null,
+        "realtyId": 2791933,
+        "filePath": "multimidia/anexos/177420/05-RESTAURANTE-ARTURITO",
+        "extension": "jpg",
+        "multimediaSubtypeId": 45,
+        "seopath": "240/16194/lancamento-ag-residences-art-restaura-arturito-5",
+        "publishStatusId": 1,
+        "assortment": 20,
+        "alwaysShow": true,
+        "title": "Perspectivas"
+      },
+      {
+        "reference": null,
+        "realtyId": 2791933,
+        "filePath": "multimidia/anexos/177420/06-PAO-DE-ACUCAR",
+        "extension": "jpg",
+        "multimediaSubtypeId": 45,
+        "seopath": "240/16194/lancamento-ag-residences-art-pao-de-acucar-6",
+        "publishStatusId": 1,
+        "assortment": 20,
+        "alwaysShow": true,
+        "title": "Perspectivas"
+      },
+      {
+        "reference": null,
+        "realtyId": 2791933,
+        "filePath": "multimidia/anexos/177420/07-HOSPITAL-SANTA-MAGGIORE",
+        "extension": "jpg",
+        "multimediaSubtypeId": 45,
+        "seopath": "240/16194/lancamento-ag-residences-art-hospital-santa-maggiore-7",
+        "publishStatusId": 1,
+        "assortment": 20,
+        "alwaysShow": true,
+        "title": "Perspectivas"
+      }
+    ],
+    "realtyMultimediaVideos": [],
+    "realtyStakeholders": []
+  },
         {
             "id": 2706853,
             "reference": "14505",

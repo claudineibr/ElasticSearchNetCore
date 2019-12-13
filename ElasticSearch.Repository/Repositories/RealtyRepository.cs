@@ -10,7 +10,7 @@ namespace ElasticSearch.Repository.Repositories
     {
         public List<Realties> GetAll()
         {
-            return JsonConvert.DeserializeObject<List<Realties>>(File.ReadAllText("./imoveis.json"));
+            return JsonConvert.DeserializeObject<List<Realties>>(File.ReadAllText("./products.json"));
         }
     }
 }

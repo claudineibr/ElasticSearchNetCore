@@ -39,23 +39,21 @@ namespace ElasticSearch.ApplicationService.RealtyService
 
         public async Task ReIndex()
         {
-            //await elasticClient.DeleteByQueryAsync<Realties>(q => q.Index(indexName).MatchAll());
+           await elasticClient.DeleteByQueryAsync<Realties>(q => q.Index(indexName).MatchAll());
 
-            //var realtys = realtyRepository.GetAll().ToArray();
-            //var newList = new List<Realties>();
-            //for (int i = 0; i < realtys.Length; i++)
-            //{
-            //    var realty = realtys[i];
-
-            //    if (realty is null)
-            //        continue;
-
-            //    newList.Add(realty);
-            //}
-            //foreach (var product in newList)
-            //{
-            //    await elasticClient.IndexAsync(product, d => d.Index(indexName));
-            //}
+            var realtys = realtyRepository.GetAll().ToArray();
+            var newList = new List<Realties>();
+            for (int i = 0; i < realtys.Length; i++)
+            {
+                var realty = realtys[i];
+                if (realty is null)
+                    continue;
+                newList.Add(realty);
+            }
+            foreach (var product in newList)
+            {
+                var result = await elasticClient.IndexAsync(product, d => d.Index(indexName));
+            }
         }
 
         public async Task<PagedResult<Realties>> GetbyAttrib(PagedRealtyFilter realtyFilter)
