@@ -47,6 +47,36 @@ namespace ElasticSearch.ApplicationService.SearchService
 
         public async Task<Realties> FindById(string id)
         {
+
+            int.TryParse(id, out int isNumber);
+
+            string search = string.Empty;
+            if (isNumber > 0)
+                search = string.Format("IM{0}", isNumber);
+            else
+                search = id;
+
+            var analyzeResponse = elasticClient.Indices.Analyze(a => a
+                           .Index(defaultIndex)
+                           .Field<Realties>(f => f.Reference)
+                           .Text(isNumber.ToString())
+                       );
+
+            var filters = new List<System.Func<QueryContainerDescriptor<Realties>, QueryContainer>>
+            {
+                fq=> fq.Prefix(p=> p.Reference,search)
+                //fq => (fq.Prefix(t => t.Field(f => f.Reference).value(search)) ||
+                //       fq.Prefix(t => t.Field(f => f.Name).Query(search))) &&
+                //       fq.Terms(t => t.Field(f => f.PublishStatusId).Terms(1))
+            };
+
+            filters.Add(fq => fq.Terms(t => t.Field(f => f.RealtyCompanies.Select(rc => rc.Company.CompanyCompanyGroups.Select(xc => xc.CompanyGroupId))).Terms(1)));
+
+            var resultFilter = elasticClient.Search<Realties>(x => x.Index(defaultIndex).Query(q => q.Bool(bq => bq.Filter(filters))));
+
+            if (resultFilter.Documents.Count > 0)
+                return resultFilter.Documents.First();
+
             var any = await elasticClient.GetAsync<Realties>(id, d => d.Index(defaultIndex));
             if (any.Source is null)
             {
